@@ -93,10 +93,7 @@
     [buttonPoolView addSubview:importButton];
     [buttonPoolView release];
     
-    _scrollView  = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 316+52, 320, 68)];
-    _scrollView.backgroundColor = [UIColor brownColor];
-    [self.view addSubview:_scrollView];
-    
+       
 
     
     UIView *footView = [[UIView alloc]initWithFrame:CGRectMake(0, 435, 320, 35)];
@@ -123,7 +120,7 @@
     }
     else{
         if(categoryName ==nil){
-           categoryName =[PathHelper documentDirectory];
+          categoryName= [PathHelper documentDirectory];
             
         }
          arr  = [[HomeViewDataSource imagesInfoWithCategory:categoryName] retain];
@@ -166,6 +163,10 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden= YES;
+    if(_scrollView){
+        [_scrollView removeFromSuperview];
+        [_scrollView release];
+    }
     [self performSelector:@selector(initScrollView)];
     [_tableView reloadData];
    }
@@ -222,6 +223,10 @@
 }
 
 -(void)initScrollView{
+    _scrollView  = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 316+52, 320, 68)];
+    _scrollView.backgroundColor = [UIColor brownColor];
+    [self.view addSubview:_scrollView];
+
     _scrollView.pagingEnabled =YES;
     _scrollView.showsVerticalScrollIndicator=NO;
     _scrollView.showsHorizontalScrollIndicator = NO;

@@ -27,6 +27,7 @@
 }
 
 +(NSString*)documentDirectory{
+    
       NSArray* paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
      NSString* cachesPath = [paths objectAtIndex:0];
       NSFileManager *fm = [NSFileManager defaultManager];

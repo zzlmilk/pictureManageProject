@@ -17,7 +17,11 @@
 @synthesize pictures,index;
 -(void)dealloc{
     [pictures release];
-
+    
+    [preImageView release];
+    [currentImageView release];
+    [nextImageView release];
+    
     [super dealloc];
 }
 -(void)viewDidLoad{
@@ -36,25 +40,55 @@
     scrollView.delegate= self;    
     NSInteger pageCount = [self.pictures count];
 
-    CGSize newSize  = CGSizeMake(pageCount *320, 480 -44);
+    CGSize newSize  = CGSizeMake(pageCount*320, 480 -44);
     scrollView.contentSize = newSize;
     
     //fill image
-    for (int i=0; i<pageCount; i++) {
-        UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(i*320, 0, 320, 480-44)];
-        imageView.image  = [UIImage imageWithContentsOfFile:[[self.pictures objectAtIndex:i] imageUrl]];
-        [scrollView addSubview:imageView];
-        [imageView release];
-    } 
+//    for (int i=0; i<pageCount; i++) {
+//        UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(i*320, 0, 320, 480-44)];
+//        imageView.image  = [UIImage imageWithContentsOfFile:[[self.pictures objectAtIndex:i] imageUrl]];
+//        [scrollView addSubview:imageView];
+//        [imageView release];
+//    } 
     
     [self.view addSubview:scrollView];
+    [self  createThreeImage];    
     
-    [scrollView setContentOffset:CGPointMake(self.index*320, 0) animated:NO];
-     currentPage=self.index;
+ 
     
 }
 
+-(void)caultePage:(NSInteger)aPage {
+    currentPage=aPage;
+    prePage = currentPage-1<0? [self.pictures count]-1:currentPage-1;
+    nextPage = currentPage+1==[self.pictures count]?0:currentPage+1;
+}
 
+//每次set pre current nex 3张图片
+-(void)createThreeImage{
+    
+    [self caultePage:self.index];
+    
+    preImageView = [[UIImageView alloc]initWithFrame:CGRectMake(prePage*320, 0, 320, 480-44)];
+    preImageView.image  = [UIImage imageWithContentsOfFile:[[self.pictures objectAtIndex:prePage] imageUrl]];
+    [scrollView addSubview:preImageView];
+    
+    currentImageView = [[UIImageView alloc]initWithFrame:CGRectMake(currentPage*320, 0, 320, 480-44)];
+    currentImageView.image  = [UIImage imageWithContentsOfFile:[[self.pictures objectAtIndex:currentPage] imageUrl]];
+    [scrollView addSubview:currentImageView];
+    
+    nextImageView = [[UIImageView alloc]initWithFrame:CGRectMake(nextPage*320, 0, 320, 480-44)];
+    nextImageView.image  = [UIImage imageWithContentsOfFile:[[self.pictures objectAtIndex:nextPage] imageUrl]];
+    [scrollView addSubview:nextImageView];
+    
+    [scrollView setContentOffset:CGPointMake(currentPage *320, 0) animated:NO];
+}
+
+
+-(void)setThreeImage:(NSInteger)aPage{
+
+
+}
 
 
 
@@ -67,7 +101,6 @@
 
 -(void)doShare{
     ShareEditViewController *shareEditViewController = [[ShareEditViewController alloc]init];
-  
     shareEditViewController.image =  [UIImage imageWithContentsOfFile:[[self.pictures objectAtIndex:currentPage] imageUrl]];
     [self.navigationController pushViewController:shareEditViewController animated:YES];
     [shareEditViewController release];
@@ -81,8 +114,27 @@
 
 
 -(void)scrollViewDidEndDragging:(UIScrollView *)aScrollView willDecelerate:(BOOL)decelerate{
-    currentPage=aScrollView.contentOffset.x/320;
+    if(aScrollView.contentOffset.x/320>currentPage){
+        //forword right
+        nextPage++;
+        if(nextPage <[self.pictures count]){
+        UIImageView  *newImageView =[ [UIImageView alloc]initWithFrame:CGRectMake(nextPage*320, 0, 320, 480-44)];
+        newImageView.image=[UIImage imageWithContentsOfFile:[[self.pictures objectAtIndex:nextPage] imageUrl]];
+        [aScrollView  addSubview:newImageView];
+        [newImageView release];
+        }
+    }
+    else{
+        prePage++;
+        if(prePage >=0){
+        UIImageView  *newImageView =[ [UIImageView alloc]initWithFrame:CGRectMake(prePage*320, 0, 320, 480-44)];
+        newImageView.image=[UIImage imageWithContentsOfFile:[[self.pictures objectAtIndex:prePage] imageUrl]];
+        [aScrollView  addSubview:newImageView];
+        [newImageView release];
+        }
 
+    }
+    
 }
 
 

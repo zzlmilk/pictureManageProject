@@ -14,6 +14,12 @@
 @interface PictureDetailViewController : UIViewController<UIScrollViewDelegate> {
     UIScrollView * scrollView;
     NSInteger currentPage;
+    NSInteger prePage;
+    NSInteger nextPage;
+    
+    UIImageView *preImageView;
+    UIImageView *currentImageView;
+    UIImageView *nextImageView;
 
 }
 
@@ -21,6 +27,8 @@
 @property(nonatomic,assign)NSInteger index;
 
 
+-(void)createThreeImage;
 
+-(void)setThreeImage:(NSInteger)index;
 
 @end
