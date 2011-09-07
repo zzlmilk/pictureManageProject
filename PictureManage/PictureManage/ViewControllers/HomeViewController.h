@@ -18,13 +18,17 @@
     UISegmentedControl* segmentedControl;
     UIScrollView *_scrollView;
 
-
+    
     NSMutableArray *pictures;
     NSMutableArray *toolImages;
     NSArray *categorys;
     Picture *picture;
     
+    NSString *test;
+    
 }
+
+//test git
 
 
 
