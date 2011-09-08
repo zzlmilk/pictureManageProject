@@ -329,6 +329,7 @@
 
 
 - (void)onClickEvent:(ImageView*)aImageView imageObject:(id)aImageObject{
+    //scroll 工具条
     [pictures removeAllObjects];
     [self setPictures:aImageObject];
 }

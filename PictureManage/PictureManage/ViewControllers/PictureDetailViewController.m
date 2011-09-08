@@ -24,6 +24,7 @@
     
     [super dealloc];
 }
+
 -(void)viewDidLoad{
     [super viewDidLoad];
     currentPage = self.index;
@@ -85,10 +86,6 @@
 }
 
 
--(void)setThreeImage:(NSInteger)aPage{
-
-
-}
 
 
 
@@ -125,7 +122,7 @@
         }
     }
     else{
-        prePage++;
+        prePage--;
         if(prePage >=0){
         UIImageView  *newImageView =[ [UIImageView alloc]initWithFrame:CGRectMake(prePage*320, 0, 320, 480-44)];
         newImageView.image=[UIImage imageWithContentsOfFile:[[self.pictures objectAtIndex:prePage] imageUrl]];
