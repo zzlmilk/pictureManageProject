@@ -22,8 +22,7 @@
     BOOL _isUsingCamera;    //是否是使用照相机导入，必须设置
     DialogView *_dialogView;
     NSOperationQueue *_saveQueue;
-    
-     NSOperationQueue *_dealImageQueue;
+    NSOperationQueue *_dealImageQueue;
 
 }
 @property (nonatomic, retain) NSMutableArray *selectedImages;

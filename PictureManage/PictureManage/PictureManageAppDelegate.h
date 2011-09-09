@@ -21,6 +21,7 @@
 +(PictureManageAppDelegate  *)getAppDelegate;
 
 - (void)alert:(NSString*)title message:(NSString*)message;
+
 @end
 
 

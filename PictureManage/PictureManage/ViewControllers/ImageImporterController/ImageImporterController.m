@@ -94,6 +94,7 @@
 
 - (void)updateToolBarInfo {
     NSString *info = [NSString stringWithFormat:@"您选择了%d张照片", [_selectedImages count]];
+    
     [_imageSelectedInfo setTitle:info forState:UIControlStateNormal];
 }
 

@@ -58,15 +58,7 @@
     afOpenFlowView = [[AFOpenFlowView alloc] initWithFrame:CGRectMake(0, 0, 320, 315)];
     afOpenFlowView.dataSource = self;
     afOpenFlowView.viewDelegate = self;    
-    [afOpenFlowView setNumberOfImages:[pictures count]];
-    
-
-    
-    [afOpenFlowView defaultImage];
-    [self.view addSubview:afOpenFlowView];
-    
-    [afOpenFlowView setHidden:YES];
-    
+       
     //openFlow
     
     
@@ -149,6 +141,9 @@
         
     }
     else if(segIndex ==1){
+        [afOpenFlowView setNumberOfImages:[pictures count]];
+        [afOpenFlowView defaultImage];
+        [self.view addSubview:afOpenFlowView];
         [afOpenFlowView setHidden:NO];
         [_tableView setHidden:YES];
 
@@ -206,9 +201,14 @@
 
 - (void)imagePickerController:(ImageImporterController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     UIImage *image = [info valueForKey:UIImagePickerControllerOriginalImage];
+    if([picker.selectedImages count]>19){
+        [[PictureManageAppDelegate getAppDelegate] alert:@"提示" message:@"图片超过20了哦，有点过多请先导入"];
+    }
+    else{
     [picker.selectedImages addObject:image];
     if(!picker.isUsingCamera){
         [picker updateToolBarInfo];
+    }
     }
 
 }

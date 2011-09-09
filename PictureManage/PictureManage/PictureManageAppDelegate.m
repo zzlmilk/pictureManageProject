@@ -7,7 +7,6 @@
 //
 
 #import "PictureManageAppDelegate.h"
-
 #import "HomeViewController.h"
 
 @implementation PictureManageAppDelegate
