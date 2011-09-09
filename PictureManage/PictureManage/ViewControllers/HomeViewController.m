@@ -247,13 +247,22 @@
         
         [_scrollView addSubview:imageView];
         imageView.imageObject = [categorys objectAtIndex:i];
-        imageView.imageViewDelegate =self;
+                    imageView.imageViewDelegate =self;
         [imageView release];
-        UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(toolImageLeftMagn+(i*toolImageLeftMagn)+i*60, toolImageTopMagn+30, 30, 30)];
+        UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(toolImageLeftMagn+(i*toolImageLeftMagn)+i*60, toolImageTopMagn+30, 50, 30)];
         label.text = [categorys objectAtIndex:i];
         label.backgroundColor = [UIColor clearColor];
-        label.textAlignment=UITextAlignmentCenter;
+        label.font = [UIFont systemFontOfSize:13.0f];
+        label.textAlignment= UITextAlignmentLeft;
         [_scrollView addSubview:label];
+        
+//        
+//        NSString *_string = [NSString stringWithString:imageView.imageObject];
+//        CGSize LabelSize = [_string sizeWithFont:label.font 
+//                               constrainedToSize:label.frame.size
+//                                   lineBreakMode:UILineBreakModeCharacterWrap];
+        
+
         [label release];
     }
     

@@ -10,6 +10,7 @@
 #import "Picture.h"
 #import "UIImage+Compress.h"
 #import "UIImage+Resize.h"
+
 #define kLeftImageRect   CGRectMake(20, 10, 80, 80)
 #define kMiddleImageRect CGRectMake(120, 10, 80, 80)
 #define kRighteImageRect CGRectMake(220, 10, 80, 80)
@@ -28,7 +29,6 @@
         rightImageView =[[ImageView alloc]initWithFrame:kRighteImageRect imageURL:@"3.jpg"];
         rightImageView.imageViewDelegate =self;
         
-        
         [self addSubview:leftImageView];
         [self addSubview:middleImageView];
         [self addSubview:rightImageView];
@@ -41,7 +41,6 @@
     if([self.puctures count]>0){
         NSInteger startIndex = self.indexPath.row * 3;
         NSInteger pictuesCount = [self.puctures count];
-      
         for(int i = 0 ;i<3;i++)
         {
             if(i == 0){
