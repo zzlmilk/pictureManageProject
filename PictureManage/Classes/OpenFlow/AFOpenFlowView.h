@@ -70,6 +70,8 @@
 - (void)centerOnSelectedCover:(BOOL)animated;
 - (void)setImage:(UIImage *)image forIndex:(int)index;
 
+- (void)updateAllImage;
+
 @end
 
 @protocol AFOpenFlowViewDelegate <NSObject>

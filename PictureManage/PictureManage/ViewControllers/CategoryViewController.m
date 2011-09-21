@@ -23,7 +23,7 @@
 
 -(void)viewDidLoad{
     [super viewDidLoad];
-    
+    [self.navigationController.navigationBar setBarStyle:UIBarStyleBlack];
     _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, 320, 480) style:UITableViewStylePlain];
     _tableView.delegate =self;
     _tableView.dataSource =self;

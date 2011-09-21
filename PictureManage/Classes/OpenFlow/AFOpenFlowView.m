@@ -105,6 +105,30 @@ const static CGFloat kReflectionFraction = 0.85;
 	}
 }
 
+-(void)updateAllImage{
+    [coverImages removeAllObjects];
+	[coverImageHeights removeAllObjects];
+	[offscreenCovers removeAllObjects];;
+	[onscreenCovers removeAllObjects];
+    NSArray *arr = [[NSArray alloc]initWithArray:scrollView.layer.sublayers];
+    for(int i = 0 ; i < [arr count];i ++)
+    {
+        CALayer *layer = [[CALayer alloc]initWithLayer: [arr objectAtIndex:i]];
+        [layer removeFromSuperlayer];
+        [layer release];
+    }
+    [arr release];
+    self.multipleTouchEnabled = NO;
+	self.userInteractionEnabled = YES;
+	self.autoresizesSubviews = YES;
+	self.layer.position=CGPointMake(self.frame.size.width / 2, self.frame.size.height / 2);
+    
+    lowerVisibleCover = upperVisibleCover = -1;
+	selectedCoverView = nil;
+
+
+}
+
 - (AFItemView *)dequeueReusableCover {
 	AFItemView *aCover = [offscreenCovers anyObject];
 	if (aCover) {

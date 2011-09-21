@@ -15,7 +15,6 @@
 #import "CategoryEditViewController.h"
 #import "PathHelper.h"
 #import "ImageImporterController.h"
-
 #import "UIImage+Compress.h"
 #import "UIImage+Resize.h"
 
@@ -130,6 +129,8 @@
         [picture release];
     }
     [_tableView reloadData];
+    //[afOpenFlowView setNumberOfImages:[pictures count]];
+    [afOpenFlowView updateAllImage];
     [afOpenFlowView setNumberOfImages:[pictures count]];
 }
 
@@ -141,6 +142,7 @@
         
     }
     else if(segIndex ==1){
+        [self.view setBackgroundColor:[UIColor grayColor]];
         [afOpenFlowView setNumberOfImages:[pictures count]];
         [afOpenFlowView defaultImage];
         [self.view addSubview:afOpenFlowView];
