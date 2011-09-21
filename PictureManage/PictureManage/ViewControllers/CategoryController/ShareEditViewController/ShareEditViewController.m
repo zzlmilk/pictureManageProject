@@ -9,8 +9,8 @@
 #import "ShareEditViewController.h"
 
 #import <QuartzCore/QuartzCore.h>
-#define kOAuthConsumerKey				@"3983859935"		//REPLACE ME
-#define kOAuthConsumerSecret			@"201fea7b1e1203a76a10f3be570f5abb"		//REPLACE ME
+#define kOAuthConsumerKey				@"1255896678"		
+#define kOAuthConsumerSecret			@"e16121307f32276e4fa25b18334681b5"	
 @implementation ShareEditViewController
 @synthesize image;
 -(void)viewDidLoad{
