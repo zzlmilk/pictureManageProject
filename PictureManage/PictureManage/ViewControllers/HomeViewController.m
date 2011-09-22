@@ -21,7 +21,7 @@
 
 
 #define toolImageLeftMagn 19
-#define toolImageTopMagn 30
+#define toolImageTopMagn 18
 
 @implementation HomeViewController
 
@@ -285,7 +285,7 @@
 
 -(void)initScrollView{
     _scrollView  = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 305+52+15, 320, 89)];
-    UIImageView *buttonPoolBG= [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"share_top_sina_ThuSep22_141734_2011.png"]];
+    UIImageView *buttonPoolBG= [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"ad_bg@2x_ThuSep22_113202_2011.png"]];
     [buttonPoolBG setFrame:CGRectMake(0, 0, 320, 98)];
     [_scrollView addSubview:buttonPoolBG];
     [self.view addSubview:_scrollView];
@@ -317,14 +317,14 @@
             imageView  = [[ImageView alloc] initWithFrame:CGRectMake(toolImageLeftMagn+(i*toolImageLeftMagn)+i*60,toolImageTopMagn , 30, 30) imageURL:[fPict imageThumbnailUrl]];
         }
         else{
-         imageView  = [[ImageView alloc] initWithFrame:CGRectMake(toolImageLeftMagn+(i*toolImageLeftMagn)+i*60,toolImageTopMagn , 30, 30) imageFileURL:[fPict imageThumbnailUrl]];
+         imageView  = [[ImageView alloc] initWithFrame:CGRectMake(toolImageLeftMagn+(i*toolImageLeftMagn)+i*60,toolImageTopMagn , 40, 40) imageFileURL:[fPict imageThumbnailUrl]];
         }
         
         [_scrollView addSubview:imageView];
         imageView.imageObject = [categorys objectAtIndex:i];
                     imageView.imageViewDelegate =self;
         [imageView release];
-        UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(toolImageLeftMagn+(i*toolImageLeftMagn)+i*60, toolImageTopMagn+30, 50, 30)];
+        UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(toolImageLeftMagn+(i*toolImageLeftMagn)+i*60, toolImageTopMagn+40, 53, 30)];
         label.text = [categorys objectAtIndex:i];
         label.backgroundColor = [UIColor clearColor];
         label.font = [UIFont systemFontOfSize:13.0f];

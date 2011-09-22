@@ -119,6 +119,7 @@
         newImageView.image=[UIImage imageWithContentsOfFile:[[self.pictures objectAtIndex:nextPage] imageUrl]];
         [aScrollView  addSubview:newImageView];
         [newImageView release];
+            currentPage ++;
         }
     }
     else{
@@ -128,9 +129,11 @@
         newImageView.image=[UIImage imageWithContentsOfFile:[[self.pictures objectAtIndex:prePage] imageUrl]];
         [aScrollView  addSubview:newImageView];
         [newImageView release];
+            currentPage --;
         }
-
+        
     }
+
     
 }
 
