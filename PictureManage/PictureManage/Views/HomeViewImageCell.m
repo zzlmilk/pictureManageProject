@@ -10,7 +10,7 @@
 #import "Picture.h"
 #import "UIImage+Compress.h"
 #import "UIImage+Resize.h"
-
+#import <QuartzCore/QuartzCore.h>
 #define kLeftImageRect   CGRectMake(20, 10, 80, 80)
 #define kMiddleImageRect CGRectMake(120, 10, 80, 80)
 #define kRighteImageRect CGRectMake(220, 10, 80, 80)
@@ -22,12 +22,23 @@
     
     if(self){
         leftImageView =[[ImageView alloc]initWithFrame:kLeftImageRect imageURL:@"1.jpg"];
-                leftImageView.imageViewDelegate =self;
+        leftImageView.imageViewDelegate =self;
+        leftImageView.layer.borderWidth = 0;
+        leftImageView.layer.cornerRadius = 5;
+        leftImageView.layer.masksToBounds = YES; 
+        
         middleImageView =[[ImageView alloc]initWithFrame:kMiddleImageRect imageURL:@"2.jpg"];
         middleImageView.imageViewDelegate =self;
+        middleImageView.layer.borderWidth = 0;
+        middleImageView.layer.cornerRadius = 5;
+        middleImageView.layer.masksToBounds = YES; 
         
         rightImageView =[[ImageView alloc]initWithFrame:kRighteImageRect imageURL:@"3.jpg"];
         rightImageView.imageViewDelegate =self;
+        rightImageView.layer.borderWidth = 0;
+        rightImageView.layer.cornerRadius = 5;
+        rightImageView.layer.masksToBounds = YES; 
+
         
         [self addSubview:leftImageView];
         [self addSubview:middleImageView];

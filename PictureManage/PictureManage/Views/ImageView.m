@@ -7,22 +7,40 @@
 //
 
 #import "ImageView.h"
-
+#import <QuartzCore/QuartzCore.h>
 @implementation ImageView
 @synthesize imageView;
 @synthesize imageObject;
 @synthesize imageViewDelegate,tag;
 
--(id)initWithFrame:(CGRect)frame imageURL:(NSString *)aImageURL{
+-(id)initWithFrame:(CGRect)frame imageURL:(NSString *)aImageURL {
     self = [super initWithFrame:frame];
     if(self){
         imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
         imageView.image = [UIImage imageNamed:aImageURL];
+        imageView.layer.borderWidth = 0;
+        imageView.layer.cornerRadius = 5;
+        imageView.layer.masksToBounds = YES; 
         [self addSubview:imageView];
         
     }
     return self;
     
+}
+
+- (id)initWithFrame:(CGRect)frame
+       imageFileURL:(NSString*)aImageURL{
+    self = [super initWithFrame:frame];
+    if(self){
+        imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
+        imageView.image = [UIImage imageWithContentsOfFile:aImageURL];
+        imageView.layer.borderWidth = 0;
+        imageView.layer.cornerRadius = 5;
+        imageView.layer.masksToBounds = YES; 
+        [self addSubview:imageView];
+        
+    }
+    return self;
 }
 -(void)setupImageView:(NSString *)aImageURL{
     if(aImageURL !=@"" && aImageURL){

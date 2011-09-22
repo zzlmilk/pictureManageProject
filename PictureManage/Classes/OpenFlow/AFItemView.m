@@ -40,6 +40,9 @@
 		// Image View
 		imageView = [[UIImageView alloc] initWithFrame:frame];
 		imageView.opaque = YES;
+        imageView.layer.borderWidth = 0;
+        imageView.layer.cornerRadius = 5;
+        imageView.layer.masksToBounds = YES; 
 		[self addSubview:imageView];
 	}
 	

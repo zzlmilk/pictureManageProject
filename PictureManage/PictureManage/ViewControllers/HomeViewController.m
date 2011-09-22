@@ -9,7 +9,7 @@
 #import "HomeViewController.h"
 #import "CategoryViewController.h"
 #import "CategoryDataSource.h"
-#import "Picture.h"
+
 #import "pictureDetailViewController.h"
 #import "HomeViewDataSource.h"
 #import "CategoryEditViewController.h"
@@ -18,8 +18,10 @@
 #import "UIImage+Compress.h"
 #import "UIImage+Resize.h"
 
+
+
 #define toolImageLeftMagn 19
-#define toolImageTopMagn 4
+#define toolImageTopMagn 30
 
 @implementation HomeViewController
 
@@ -48,58 +50,104 @@
     
     [self setPictures:nil];
     
-    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320, 315) style:UITableViewStylePlain];
+    
+    
+    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 52, 320, 305) style:UITableViewStylePlain];
     _tableView.dataSource =self;
     _tableView.delegate= self;
     _tableView.separatorStyle =UITableViewCellSeparatorStyleNone;
+    _tableView.backgroundColor =[UIColor clearColor];
+    UIImageView *backGroundView= [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"about_bg.jpg"]];
+    [backGroundView setFrame:CGRectMake(0, 0, 320, 480)];
+    [self.view addSubview: backGroundView];
     [self.view addSubview:_tableView];
-   
-    afOpenFlowView = [[AFOpenFlowView alloc] initWithFrame:CGRectMake(0, 0, 320, 315)];
+      //openFlow
+    afOpenFlowView = [[AFOpenFlowView alloc] initWithFrame:CGRectMake(0, 52, 320, 305)];
     afOpenFlowView.dataSource = self;
     afOpenFlowView.viewDelegate = self;    
+    [self.view addSubview:afOpenFlowView];
+ 
+    
+    
+    UIView *buttonPoolView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 52)];
+   UIImageView *buttonPoolBG= [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"main_menu_bottom_bg_ThuSep22_141728_2011.png"]];
+    [buttonPoolBG setFrame:CGRectMake(-20, 0, 400, 52)];
+    [buttonPoolView addSubview:buttonPoolBG];
+    [buttonPoolBG release]  ;
        
-    //openFlow
-    
-    
-    UIView *buttonPoolView = [[UIView alloc]initWithFrame:CGRectMake(0, 316, 320, 52)];
-    buttonPoolView.backgroundColor = [UIColor grayColor];
-    [self.view addSubview:buttonPoolView];
-    
-    UIButton *manageButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    UIButton *manageButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [manageButton setBackgroundImage:[UIImage imageNamed:@"main_menu_bottom_btn1_a_ThuSep22_141728_2011.png"] forState:UIControlStateNormal];
     [manageButton setTitle:@"管理" forState:UIControlStateNormal];
-    [manageButton setFrame:CGRectMake(32, 10, 60, 32)];
+    manageButton.titleLabel.font = [UIFont systemFontOfSize:14.0f];
+    [manageButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [manageButton setFrame:CGRectMake(10, 10, 63, 32)];
     [manageButton addTarget:self action:@selector(doManageButton) forControlEvents:UIControlEventTouchUpInside];
     [buttonPoolView addSubview:manageButton];
     
-    UIButton *photoButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    UIButton *photoButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [photoButton setBackgroundImage:[UIImage imageNamed:@"main_menu_bottom_btn1_a_ThuSep22_141728_2011.png"] forState:UIControlStateNormal];
+        photoButton.titleLabel.font = [UIFont systemFontOfSize:14.0f];
     [photoButton setTitle:@"照片" forState:UIControlStateNormal];
-    [photoButton setFrame:CGRectMake(132, 10, 60, 32)];
+    [photoButton setFrame:CGRectMake(83, 10, 63, 32)];
     [photoButton addTarget:self action:@selector(doPhotoButton) forControlEvents:UIControlEventTouchUpInside];
     [buttonPoolView addSubview:photoButton];
     
-    UIButton *importButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    UIButton *importButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [importButton setBackgroundImage:[UIImage imageNamed:@"main_menu_bottom_btn1_a_ThuSep22_141728_2011.png"] forState:UIControlStateNormal];
+    importButton.titleLabel.font = [UIFont systemFontOfSize:14.0f];
     [importButton setTitle:@"导入" forState:UIControlStateNormal];
-    [importButton setFrame:CGRectMake(232, 10, 60, 32)];
+    [importButton setFrame:CGRectMake(156, 10, 63, 32)];
     [importButton addTarget:self action:@selector(doImportButton) forControlEvents:UIControlEventTouchUpInside];
     [buttonPoolView addSubview:importButton];
+    
+
+    NSArray* items = [[NSArray alloc] initWithObjects:[UIImage imageNamed:@"ProductFeature_seg0_normal.png"],[UIImage imageNamed:@"ProductFeature_seg1_normal.png"],nil];
+        segmentedControl = [[UISegmentedControl alloc] initWithItems:items];
+        CGRect re = CGRectMake(240, 10, 60, 30);
+        segmentedControl.frame= re; 
+        [segmentedControl addTarget:self action:@selector(segmentAction) forControlEvents:UIControlEventValueChanged];
+        [items release];
+        segmentedControl.segmentedControlStyle = UISegmentedControlStyleBar;
+        segmentedControl.selectedSegmentIndex = 0;
+        [buttonPoolView addSubview:segmentedControl];
+    
+    [self.view addSubview:buttonPoolView];
     [buttonPoolView release];
     
-       
+    //提示没有分组照片
+    tipButtonImportPicture = [UIButton buttonWithType:UIButtonTypeCustom];
+    [tipButtonImportPicture setFrame:CGRectMake(10, 180, 300, 60)];
+    [tipButtonImportPicture setBackgroundImage:[UIImage imageNamed:@"main_menu_bottom_bg_ThuSep22_141728_2011.png" ]forState:UIControlStateNormal];
+    [tipButtonImportPicture setTitle:@"您的分组暂无图片点击导入图片" forState:UIControlStateNormal];
+    tipButtonImportPicture.titleLabel.font = [UIFont systemFontOfSize:16.0f];
+    [tipButtonImportPicture addTarget:self action:@selector(doImportButton) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:tipButtonImportPicture];
+    [tipButtonImportPicture setHidden:YES];
+    
 
     
-    UIView *footView = [[UIView alloc]initWithFrame:CGRectMake(0, 435, 320, 35)];
-    footView.backgroundColor = [UIColor grayColor];
-    [self.view addSubview:footView];
-    //  Label
+}
 
+-(Picture *)getFirstPictureByCategory:(NSString *)categoryName{
+    if(categoryName){
+        NSArray *arr  = [NSArray array];
+        picture = [[[Picture alloc]init] autorelease];
+
+        arr  = [[HomeViewDataSource imagesInfoWithCategory:categoryName] retain];
+        if([arr objectAtIndex:0] ==nil){
+            picture.imageUrl = @"filter_grayscale_a_ThuSep22_141721_2011.png";
+            picture.imageThumbnailUrl=@"filter_grayscale_a_ThuSep22_141721_2011.png";
+            picture.belongCategory = @"notUser";
+        }
+        else{
+        picture.imageUrl = [[arr objectAtIndex:0] objectForKey:@"name"];
+        picture.imageThumbnailUrl=[[arr objectAtIndex:0] objectForKey:@"nameThumbnail"];
+        picture.imageDescript = [NSString stringWithFormat:@"%i图片哦",0];
+        picture.belongCategory = [[arr objectAtIndex:0] objectForKey:@"category"];
+        }
+    }
+    return picture;
     
-    NSArray *items = [NSArray arrayWithObjects:@"samllTable", @"openFlow", nil];
-    segmentedControl = [[UISegmentedControl alloc] initWithItems:items];
-    segmentedControl.segmentedControlStyle = UISegmentedControlStyleBar; 
-    [segmentedControl addTarget:self action:@selector(segmentAction) forControlEvents:UIControlEventValueChanged];
-    [footView addSubview:segmentedControl];
-    [segmentedControl release];
-    [footView release];
 }
 
 -(void)setPictures:(NSString *)categoryName{
@@ -115,6 +163,14 @@
             
         }
          arr  = [[HomeViewDataSource imagesInfoWithCategory:categoryName] retain];
+        if ([arr count] == 0) {
+            //这个分组没有照片
+            [tipButtonImportPicture setHidden:NO];
+             
+        }
+        else{
+            [tipButtonImportPicture setHidden:YES];
+        }
     }
    
    
@@ -132,6 +188,7 @@
     //[afOpenFlowView setNumberOfImages:[pictures count]];
     [afOpenFlowView updateAllImage];
     [afOpenFlowView setNumberOfImages:[pictures count]];
+    
 }
 
 -(void)segmentAction{
@@ -140,15 +197,17 @@
         [afOpenFlowView setHidden:YES];
         [_tableView setHidden:NO];
         
+        [segmentedControl setImage:[UIImage imageNamed:@"ProductFeature_seg0_selected.png"] forSegmentAtIndex:0];
+        [segmentedControl setImage:[UIImage imageNamed:@"ProductFeature_seg1_normal.png"] forSegmentAtIndex:1];
+        
     }
     else if(segIndex ==1){
-        [self.view setBackgroundColor:[UIColor grayColor]];
         [afOpenFlowView setNumberOfImages:[pictures count]];
         [afOpenFlowView defaultImage];
-        [self.view addSubview:afOpenFlowView];
         [afOpenFlowView setHidden:NO];
         [_tableView setHidden:YES];
-
+        [segmentedControl setImage:[UIImage imageNamed:@"ProductFeature_seg0_normal.png"] forSegmentAtIndex:0];
+        [segmentedControl setImage:[UIImage imageNamed:@"ProductFeature_seg1_selected.png"] forSegmentAtIndex:1];
     }
 }
 
@@ -225,8 +284,10 @@
 }
 
 -(void)initScrollView{
-    _scrollView  = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 316+52, 320, 68)];
-    _scrollView.backgroundColor = [UIColor brownColor];
+    _scrollView  = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 305+52+15, 320, 89)];
+    UIImageView *buttonPoolBG= [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"share_top_sina_ThuSep22_141734_2011.png"]];
+    [buttonPoolBG setFrame:CGRectMake(0, 0, 320, 98)];
+    [_scrollView addSubview:buttonPoolBG];
     [self.view addSubview:_scrollView];
 
     _scrollView.pagingEnabled =YES;
@@ -241,11 +302,23 @@
     if (categorysNum %4 !=0) {
         pageNum ++;
     }
-    CGSize newSize = CGSizeMake(self.view.frame.size.width * pageNum, 68);
+    CGSize newSize = CGSizeMake(self.view.frame.size.width * pageNum, 89);
+    [buttonPoolBG setFrame:CGRectMake(0, 0, self.view.frame.size.width * pageNum, 89)];
+    [_scrollView addSubview:buttonPoolBG];
+    [self.view addSubview:_scrollView];
+
     _scrollView.contentSize = newSize;
-    
+
     for (int i = 0; i<categorysNum; i++) {
-        ImageView *imageView  = [[ImageView alloc] initWithFrame:CGRectMake(toolImageLeftMagn+(i*toolImageLeftMagn)+i*60,toolImageTopMagn , 30, 30) imageURL:@"add.png"];
+        
+      Picture *fPict=  [self getFirstPictureByCategory:[categorys objectAtIndex:i]];
+        ImageView *imageView ;
+        if ([fPict belongCategory] ==@"notUser") {
+            imageView  = [[ImageView alloc] initWithFrame:CGRectMake(toolImageLeftMagn+(i*toolImageLeftMagn)+i*60,toolImageTopMagn , 30, 30) imageURL:[fPict imageThumbnailUrl]];
+        }
+        else{
+         imageView  = [[ImageView alloc] initWithFrame:CGRectMake(toolImageLeftMagn+(i*toolImageLeftMagn)+i*60,toolImageTopMagn , 30, 30) imageFileURL:[fPict imageThumbnailUrl]];
+        }
         
         [_scrollView addSubview:imageView];
         imageView.imageObject = [categorys objectAtIndex:i];
@@ -328,8 +401,8 @@
     NSString *imageUrl = [[pictures objectAtIndex:index] imageUrl];
     UIImage *image = [UIImage imageWithContentsOfFile:imageUrl];
     UIImage *newImage = [image resizeImageWithNewSize:CGSizeMake(255, 255)]; //把图片大小设成255＊255
-    
-//    UIImage *newImage = [image resizedImage:CGSizeMake(255, 255) interpolationQuality:2]; on device test !
+
+  //    UIImage *newImage = [image resizedImage:CGSizeMake(255, 255) interpolationQuality:2]; on device test !
     
     [openFlowView setImage: newImage forIndex:index];
     

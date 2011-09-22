@@ -11,10 +11,8 @@
 #import "ImageView.h"
 #import "ImageImporterController.h"
 #import "HomeViewImageCell.h"
+#import "Picture.h"
 
-
-
-@class Picture;
 @interface HomeViewController : UIViewController<UIScrollViewDelegate,UITableViewDelegate,UITableViewDataSource,AFOpenFlowViewDelegate,AFOpenFlowViewDataSource, UIImagePickerControllerDelegate,UINavigationControllerDelegate,ImageViewDelegate,ImageCellDidSelectImage,ImageImporterDelegate> {
     UITableView *_tableView;
     AFOpenFlowView * afOpenFlowView;
@@ -26,10 +24,12 @@
     NSArray *categorys;
     Picture *picture;
     
+    UIButton *tipButtonImportPicture;
+    
 }
 
 
 -(void)setPictures:(NSString *)categoryName;
-
+-(Picture *)getFirstPictureByCategory:(NSString *)categoryName;
 
 @end

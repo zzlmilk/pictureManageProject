@@ -27,6 +27,10 @@
 - (id)initWithFrame:(CGRect)frame
           imageURL:(NSString*)aImageURL
           ;
+
+- (id)initWithFrame:(CGRect)frame
+           imageFileURL:(NSString*)aImageURL
+;
     
 
 - (void)setupImageView:(NSString*)aImageURL;
