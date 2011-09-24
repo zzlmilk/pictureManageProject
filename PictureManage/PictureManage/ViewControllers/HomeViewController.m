@@ -285,7 +285,7 @@
 
 -(void)initScrollView{
     _scrollView  = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 305+52+15, 320, 89)];
-    UIImageView *buttonPoolBG= [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"ad_bg_ThuSep22_113202_2011.png"]];
+    UIImageView *buttonPoolBG= [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"ad_bg_ThuSep22_113120_2011.png"]];
     [buttonPoolBG setFrame:CGRectMake(0, 0, 320, 98)];
     [_scrollView addSubview:buttonPoolBG];
     [self.view addSubview:_scrollView];
