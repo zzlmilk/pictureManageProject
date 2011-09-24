@@ -83,7 +83,7 @@
     [buttonDelete setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [buttonDelete addTarget:self action:@selector(doDelete:) forControlEvents:UIControlEventTouchUpInside];
     buttonDelete.tag  = indexPath.row;
-    [buttonDelete setFrame:CGRectMake(235, 2, 50, 40)];
+    [buttonDelete setFrame:CGRectMake(220, 2, 60, 40)];
     [cell.contentView addSubview:buttonDelete];
     return cell;
 }
@@ -92,14 +92,28 @@
 
 
 -(void)doDelete:(id)sender{
-    NSInteger index = [sender tag];
-    NSString *cagegoryName = [_categorys objectAtIndex:index];
-    if([CategoryDataSource delegeCategoryByName:cagegoryName]){
-        [_categorys removeAllObjects];
-        _categorys = [[CategoryDataSource categorys] retain]; 
-        [_tableView reloadData];
-    }
+    categoryIndex = [sender tag];
+
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"删除分类" message:@"确认要删除这个分类吗？\n此分类下的照片也将一并被删除。" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+    [alert show];
+    [alert release];
     
+    
+         
 }
+
+#pragma mark - Alert Delegate
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    //确认删除，执行删除操作
+    if (buttonIndex == 1) {
+        NSString *cagegoryName = [_categorys objectAtIndex:categoryIndex];
+        if([CategoryDataSource delegeCategoryByName:cagegoryName]){
+            [_categorys removeAllObjects];
+            _categorys = [[CategoryDataSource categorys] retain]; 
+            [_tableView reloadData];
+        }
+
+    }
+  }
 
 @end

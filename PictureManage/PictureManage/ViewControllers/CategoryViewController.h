@@ -13,6 +13,7 @@
     UITableView *_tableView;
     NSMutableArray *_categorys;
     
+    NSInteger categoryIndex;
     
 }
 
