@@ -155,6 +155,8 @@
 		7DEFE8F214069F6E00D684EC /* ImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DEFE8F114069F6E00D684EC /* ImageView.m */; };
 		7DF4002D142B86CC001BD154 /* ad_bg@2x_ThuSep22_113202_2011.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DF4002B142B86CC001BD154 /* ad_bg@2x_ThuSep22_113202_2011.png */; };
 		7DF4002E142B86CC001BD154 /* ad_bg_ThuSep22_113120_2011.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DF4002C142B86CC001BD154 /* ad_bg_ThuSep22_113120_2011.png */; };
+		A93FDA24142F021B00FFCFAA /* ToolView.m in Sources */ = {isa = PBXBuildFile; fileRef = A93FDA22142F021B00FFCFAA /* ToolView.m */; };
+		A93FDA25142F021B00FFCFAA /* ToolView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A93FDA23142F021B00FFCFAA /* ToolView.xib */; };
 		A9CEFE521409D9B50027926E /* DialogView.m in Sources */ = {isa = PBXBuildFile; fileRef = A9CEFE501409D9B50027926E /* DialogView.m */; };
 		A9CEFE571409D9FE0027926E /* ImageSavingOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = A9CEFE541409D9FE0027926E /* ImageSavingOperation.m */; };
 		A9CEFE581409D9FE0027926E /* RotateUIImage.m in Sources */ = {isa = PBXBuildFile; fileRef = A9CEFE561409D9FE0027926E /* RotateUIImage.m */; };
@@ -391,6 +393,9 @@
 		7DEFE8F114069F6E00D684EC /* ImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageView.m; sourceTree = "<group>"; };
 		7DF4002B142B86CC001BD154 /* ad_bg@2x_ThuSep22_113202_2011.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ad_bg@2x_ThuSep22_113202_2011.png"; sourceTree = "<group>"; };
 		7DF4002C142B86CC001BD154 /* ad_bg_ThuSep22_113120_2011.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ad_bg_ThuSep22_113120_2011.png; sourceTree = "<group>"; };
+		A93FDA21142F021B00FFCFAA /* ToolView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolView.h; sourceTree = "<group>"; };
+		A93FDA22142F021B00FFCFAA /* ToolView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolView.m; sourceTree = "<group>"; };
+		A93FDA23142F021B00FFCFAA /* ToolView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ToolView.xib; sourceTree = "<group>"; };
 		A9CEFE4F1409D9B50027926E /* DialogView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DialogView.h; path = ../DialogView.h; sourceTree = "<group>"; };
 		A9CEFE501409D9B50027926E /* DialogView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DialogView.m; path = ../DialogView.m; sourceTree = "<group>"; };
 		A9CEFE531409D9FE0027926E /* ImageSavingOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageSavingOperation.h; sourceTree = "<group>"; };
@@ -510,6 +515,9 @@
 		7D0084611404B2F900F1828B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A93FDA21142F021B00FFCFAA /* ToolView.h */,
+				A93FDA22142F021B00FFCFAA /* ToolView.m */,
+				A93FDA23142F021B00FFCFAA /* ToolView.xib */,
 				A9CEFE4F1409D9B50027926E /* DialogView.h */,
 				A9CEFE501409D9B50027926E /* DialogView.m */,
 				A9CEFE5D1409DCCD0027926E /* DialogView.xib */,
@@ -1031,6 +1039,7 @@
 				7D5ADAD5142B34170050B1D4 /* filter_grayscale_a@2x_ThuSep22_141721_2011.png in Resources */,
 				7DF4002D142B86CC001BD154 /* ad_bg@2x_ThuSep22_113202_2011.png in Resources */,
 				7DF4002E142B86CC001BD154 /* ad_bg_ThuSep22_113120_2011.png in Resources */,
+				A93FDA25142F021B00FFCFAA /* ToolView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1117,6 +1126,7 @@
 				7D9B01101410950E0013C93F /* ShareEditViewController.m in Sources */,
 				7DCC8EED1411BB3D00666B02 /* UIImage+Compress.m in Sources */,
 				7D2E709814146528006217BC /* GenerateThumbnailOperation.m in Sources */,
+				A93FDA24142F021B00FFCFAA /* ToolView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1146,6 +1156,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Jianjun Wu (VC2QCB97TF)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Jianjun Wu (VC2QCB97TF)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -1155,6 +1166,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				PROVISIONING_PROFILE = "37F70B1D-BD68-4039-85F2-B6E8408040F1";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "68490740-7FB3-4761-B943-95DF919793A6";
 				SDKROOT = iphoneos;
 			};
@@ -1164,6 +1176,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Jianjun Wu (VC2QCB97TF)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
@@ -1171,6 +1184,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "37F70B1D-BD68-4039-85F2-B6E8408040F1";
 				SDKROOT = iphoneos;
 			};
 			name = Release;
