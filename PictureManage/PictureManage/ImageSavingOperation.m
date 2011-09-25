@@ -37,7 +37,7 @@
     NSDictionary *detailDic = [NSDictionary dictionaryWithObjectsAndKeys:imgPath, @"name", [_detail isEqualToString:@""] ? @"点击以修改详细信息" : _detail, @"detail", _category, @"category", nil];
     [detailArray addObject:detailDic];
     [detailArray writeToFile:detailFile atomically:YES];
-    NSLog(@"SAVEDSAVED");
+    
     [parent performSelectorOnMainThread:@selector(changeImportProgress) withObject:nil waitUntilDone:YES];
     [parent performSelectorOnMainThread:@selector(clearSelected) withObject:nil waitUntilDone:YES];
     [detailArray release];
