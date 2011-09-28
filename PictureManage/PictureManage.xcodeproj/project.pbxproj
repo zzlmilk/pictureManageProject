@@ -1178,6 +1178,7 @@
 				7DCC8EED1411BB3D00666B02 /* UIImage+Compress.m in Sources */,
 				7D2E709814146528006217BC /* GenerateThumbnailOperation.m in Sources */,
 				A93FDA24142F021B00FFCFAA /* ToolView.m in Sources */,
+				7D531A161432F99F009A6D10 /* ShareViewController.m in Sources */,
 				A96B1699143214AD007F5281 /* FileOperation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
