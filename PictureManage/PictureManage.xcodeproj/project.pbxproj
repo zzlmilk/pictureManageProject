@@ -580,7 +580,7 @@
 			path = ImageImporterController;
 			sourceTree = "<group>";
 		};
-		7D4F9966142AE78300588BBB /* Bg images */ = {
+		7D4F9966142AE78300588BBB /* Bgimages */ = {
 			isa = PBXGroup;
 			children = (
 				7D531A2314330F2E009A6D10 /* share_btn_close_b_ThuSep22_141731_2011.png */,
@@ -612,6 +612,7 @@
 				7D4F9967142AE78300588BBB /* effect_bg.jpg */,
 				7D4F9968142AE78300588BBB /* effect_bg@2x.jpg */,
 			);
+			name = Bgimages;
 			path = "Bg images";
 			sourceTree = "<group>";
 		};
@@ -933,7 +934,7 @@
 			isa = PBXGroup;
 			children = (
 				7D5ADABD142B2E200050B1D4 /* Scroller icon */,
-				7D4F9966142AE78300588BBB /* Bg images */,
+				7D4F9966142AE78300588BBB /* Bgimages */,
 				7D9004391408FA7A00AF6DCD /* add.png */,
 				7D7F37031406FFC800EBDDF8 /* Sample Images */,
 			);
