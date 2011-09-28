@@ -17,8 +17,8 @@
     
 }
 
-
-
-
+-(void)doDelete:(NSInteger)sender;
+-(void)toggleMove;
+ 
 
 @end

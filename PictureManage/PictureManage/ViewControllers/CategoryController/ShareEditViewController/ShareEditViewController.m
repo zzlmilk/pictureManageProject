@@ -15,7 +15,17 @@
 @synthesize image;
 -(void)viewDidLoad{
     [super viewDidLoad];
-    [self.view setBackgroundColor:[UIColor grayColor]];
+    //背景图
+    UIImageView *backGroundView= [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"about_bg.jpg"]];
+    [backGroundView setFrame:CGRectMake(0, 0, 320, 480)];
+    [self.view addSubview: backGroundView];
+
+    UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [backBtn setBackgroundImage:[UIImage imageNamed:@"share_btn_close_b_ThuSep22_141731_2011.png"] forState:UIControlStateNormal];
+    [backBtn setFrame:CGRectMake(290, 10, 10, 10)];
+    [backBtn addTarget:self action:@selector(doBack) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:backBtn];
+   
     UIBarButtonItem *rightBarButton = [[UIBarButtonItem alloc]initWithTitle:@"分享" style:UIBarButtonItemStyleBordered target:self action:@selector(shareSina)];
     self.navigationItem.rightBarButtonItem=rightBarButton;
     [rightBarButton release];
@@ -181,6 +191,11 @@
 	if (controller) 
 		[self presentModalViewController: controller animated: YES];
 	
+}
+
+
+-(void)doBack{
+    [self.navigationController dismissModalViewControllerAnimated:YES];
 }
 
 @end

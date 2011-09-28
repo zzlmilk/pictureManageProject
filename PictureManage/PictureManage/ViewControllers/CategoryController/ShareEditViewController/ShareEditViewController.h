@@ -10,6 +10,7 @@
 #import "OAuthController.h"
 #import "WeiboClient.h"
 #import "draft.h"
+
    @class OAuthEngine;
 @interface ShareEditViewController : UIViewController<OAuthControllerDelegate,UITextViewDelegate> {
  

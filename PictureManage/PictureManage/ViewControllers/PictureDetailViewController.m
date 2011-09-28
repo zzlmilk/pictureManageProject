@@ -10,6 +10,7 @@
 #import "PictureDetailViewController.h"
 #import "Picture.h"
 #import "ShareEditViewController.h"
+#import "ShareViewController.h"
 
 @implementation PictureDetailViewController
 
@@ -47,8 +48,8 @@
 
 -(void)viewDidLoad{
     [super viewDidLoad];
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent animated:YES];
-
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackOpaque animated:YES];
+    self.view.backgroundColor =[UIColor blackColor];
     
     currentPage = self.index;
     
@@ -59,7 +60,7 @@
     
     //scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, 320, 480-44)];
     CGFloat width = [[[[UIApplication sharedApplication] keyWindow] screen] bounds].size.width;
-    CGFloat height = [[[[UIApplication sharedApplication] keyWindow] screen] bounds].size.height;
+//    CGFloat height = [[[[UIApplication sharedApplication] keyWindow] screen] bounds].size.height;
     scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, width, 480)];
     scrollView.backgroundColor = [UIColor clearColor];
     scrollView.pagingEnabled =YES;
@@ -102,21 +103,31 @@
 //每次set pre current nex 3张图片
 -(void)createThreeImage{
     
+    NSLog(@"%@",self.pictures);
+    
     CGFloat width = 320;
     CGFloat height = 480;
-    
+    NSInteger y;
     [self caultePage:self.index];
     
-    preImageView = [[UIImageView alloc]initWithFrame:CGRectMake(prePage*width, 0, width, height)];
-    preImageView.image  = [UIImage imageWithContentsOfFile:[[self.pictures objectAtIndex:prePage] imageUrl]];
+    UIImage  *preImage = [UIImage imageWithContentsOfFile:[[self.pictures objectAtIndex:prePage] imageUrl]];
+    
+    y=(height-preImage.size.height)/2;
+    preImageView = [[UIImageView alloc]initWithFrame:CGRectMake(prePage*width, y, preImage.size.width, preImage.size.height)];
+    preImageView.image  = preImage;
     [scrollView addSubview:preImageView];
     
-    currentImageView = [[UIImageView alloc]initWithFrame:CGRectMake(currentPage*width, 0, width, height)];
-    currentImageView.image  = [UIImage imageWithContentsOfFile:[[self.pictures objectAtIndex:currentPage] imageUrl]];
+     UIImage  *cureentImage = [UIImage imageWithContentsOfFile:[[self.pictures objectAtIndex:currentPage] imageUrl]];
+    y=(height-cureentImage.size.height)/2;
+    currentImageView = [[UIImageView alloc]initWithFrame:CGRectMake(currentPage*width, y, cureentImage.size.width, cureentImage.size.height)];
+    currentImageView.image  =cureentImage;
     [scrollView addSubview:currentImageView];
     
-    nextImageView = [[UIImageView alloc]initWithFrame:CGRectMake(nextPage*width, 0, width, height)];
-    nextImageView.image  = [UIImage imageWithContentsOfFile:[[self.pictures objectAtIndex:nextPage] imageUrl]];
+    UIImage  *nextImage = [UIImage imageWithContentsOfFile:[[self.pictures objectAtIndex:nextPage] imageUrl]];
+    
+    y=(height-nextImage.size.height)/2;
+    nextImageView = [[UIImageView alloc]initWithFrame:CGRectMake(nextPage*width, y, nextImage.size.width, nextImage.size.height)];
+    nextImageView.image  = nextImage;
     [scrollView addSubview:nextImageView];
     
     [scrollView setContentOffset:CGPointMake(currentPage *width, 0) animated:NO];
@@ -134,10 +145,10 @@
 }
 
 -(void)doShare{
-    ShareEditViewController *shareEditViewController = [[ShareEditViewController alloc]init];
-    shareEditViewController.image =  [UIImage imageWithContentsOfFile:[[self.pictures objectAtIndex:currentPage] imageUrl]];
-    [self.navigationController pushViewController:shareEditViewController animated:YES];
-    [shareEditViewController release];
+    ShareViewController *shareViewController = [[ShareViewController alloc]init];
+    shareViewController.image =  [UIImage imageWithContentsOfFile:[[self.pictures objectAtIndex:currentPage] imageUrl]];
+    [self.navigationController pushViewController:shareViewController animated:YES];
+    [shareViewController release];
 }
 
 
@@ -190,7 +201,7 @@
 }
 
 - (void)sharePicture {
-
+    [self doShare];
 }
 
 - (void)deletePicture {

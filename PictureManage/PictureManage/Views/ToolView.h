@@ -14,6 +14,7 @@
 - (void)beginEditing;
 - (void)endEditingWithString:(NSString *)string;
 @end
+
 @interface ToolView : UIView <UITextViewDelegate> {
     id <ToolViewDelegate> delegate;
     UIButton *_topButton;

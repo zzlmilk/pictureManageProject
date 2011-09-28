@@ -19,12 +19,22 @@
 }
 -(void)viewDidLoad{
     [super viewDidLoad];  
-    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(20, 30, 60, 30)];
+    
+    //背景图
+    UIImageView *backGroundView= [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"about_bg.jpg"]];
+    [backGroundView setFrame:CGRectMake(0, 0, 320, 480)];
+    [self.view addSubview: backGroundView];
+
+    
+
+    
+    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(20, 30, 68, 30)];
     label.backgroundColor = [UIColor clearColor];
     label.text = @"分类名 :";
-    label.font = [UIFont systemFontOfSize:16.0f];
+    label.font = [UIFont systemFontOfSize:18.0f];
     [self.view addSubview:label];
     [label release];
+    
     
     textField = [[UITextField alloc]initWithFrame:CGRectMake(100, 30, 200, 30)];
     textField.backgroundColor = [UIColor clearColor];
@@ -32,10 +42,12 @@
     textField.borderStyle  =UITextBorderStyleRoundedRect;
     [self.view addSubview:textField];
     
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     [button setTitle:@"确定" forState:UIControlStateNormal];
+    [button setBackgroundImage:[UIImage imageNamed:@"btns_bg_ThuSep22_113202_2011.png"] forState:UIControlStateNormal];
     [button addTarget:self action:@selector(doButton) forControlEvents:UIControlEventTouchUpInside];
-    [button setFrame:CGRectMake(200, 100, 50, 25)];
+    [button setFrame:CGRectMake(100, 80, 70, 30)];
+    button.titleLabel.font = [UIFont systemFontOfSize:14.0f];
     [self.view addSubview:button];
 
     

@@ -29,6 +29,14 @@
     _tableView.dataSource =self;
     
     [self.view addSubview:_tableView];
+    
+    UIBarButtonItem *leftBarItem  = [[UIBarButtonItem alloc]initWithTitle:@"新分组" style:UIBarButtonSystemItemAdd target:self action:@selector(addCategory)];
+    
+    self.navigationItem.rightBarButtonItem = leftBarItem;
+    [leftBarItem release];
+    
+    
+    
    // _categorys = [[NSMutableArray alloc]initWithObjects:@"时尚",@"风景",@"安吉漂流", nil];
     UIBarButtonItem *rightBarItem  = [[UIBarButtonItem alloc]initWithTitle:@"新分组" style:UIBarButtonSystemItemAdd target:self action:@selector(addCategory)];
     self.navigationItem.rightBarButtonItem = rightBarItem;
@@ -36,6 +44,8 @@
     
            
 }
+
+
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -54,6 +64,10 @@
     [self.navigationController pushViewController:categortEditViewController animated:YES];
     [categortEditViewController release];
     
+}
+
+-(void)toggleMove{
+    [_tableView setEditing:!_tableView.editing animated:YES];
 }
 
 
@@ -78,21 +92,59 @@
     
     cell.textLabel.text = [_categorys objectAtIndex:indexPath.row];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    UIButton *buttonDelete = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [buttonDelete setTitle:@"删除" forState:UIControlStateNormal];
-    [buttonDelete setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [buttonDelete addTarget:self action:@selector(doDelete:) forControlEvents:UIControlEventTouchUpInside];
-    buttonDelete.tag  = indexPath.row;
-    [buttonDelete setFrame:CGRectMake(220, 2, 60, 40)];
-    [cell.contentView addSubview:buttonDelete];
+    
+    UIButton *buttonUpdate = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [buttonUpdate setTitle:@"修改" forState:UIControlStateNormal];
+    [buttonUpdate setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [buttonUpdate addTarget:self action:@selector(doUpdate:) forControlEvents:UIControlEventTouchUpInside];
+    buttonUpdate.tag  = indexPath.row;
+    [buttonUpdate setFrame:CGRectMake(191, 5, 55, 35)];
+    [cell.contentView addSubview:buttonUpdate];
+    
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
     return cell;
+}
+
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView  
+commitEditingStyle:(UITableViewCellEditingStyle)editingStyle  
+forRowAtIndexPath:(NSIndexPath *)indexPath  
+{ 
+    
+    [self doDelete:indexPath.row];
+}
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath  
+{ 
+    return UITableViewCellEditingStyleDelete; 
+} 
+
+
+
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+   
 }
 
 
 
 
--(void)doDelete:(id)sender{
-    categoryIndex = [sender tag];
+
+
+-(void)doUpdate:(id)sender{
+    
+}
+
+-(void)doDelete:(NSInteger)index{
+    categoryIndex = index;
 
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"删除分类" message:@"确认要删除这个分类吗？\n此分类下的照片也将一并被删除。" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
     [alert show];

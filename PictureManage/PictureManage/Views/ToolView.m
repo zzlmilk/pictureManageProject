@@ -8,7 +8,7 @@
 
 #import "ToolView.h"
 #import <QuartzCore/QuartzCore.h>
-
+#import "ShareViewController.h"
 
 @implementation ToolView
 
@@ -77,6 +77,7 @@
 }
 
 - (IBAction)shareButtonPressed:(id)sender {
+    
     [delegate sharePicture];
 }
 
