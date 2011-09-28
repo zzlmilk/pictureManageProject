@@ -11,7 +11,7 @@
 #import "Picture.h"
 #import "ToolView.h"
 
-@interface PictureDetailViewController : UIViewController<UIScrollViewDelegate, ToolViewDelegate> {
+@interface PictureDetailViewController : UIViewController<UIScrollViewDelegate, ToolViewDelegate, UIAlertViewDelegate> {
     UIScrollView * scrollView;
     NSInteger currentPage;
     NSInteger prePage;

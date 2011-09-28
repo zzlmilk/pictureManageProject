@@ -194,7 +194,58 @@
 }
 
 - (void)deletePicture {
-
+    if ([self.pictures count] == 0) {
+        return;
+    }
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"删除图片" message:@"确认要删除这张图片吗？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+    [alert show];
+    [alert release];
 }
 
+
+#pragma mark - UIAlertView Delegate
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 1) {
+        CGContextRef context = UIGraphicsGetCurrentContext();
+        [UIView beginAnimations:nil context:context];
+        [UIView setAnimationDuration:.3f];
+        [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+        [UIView setAnimationTransition:UIViewAnimationTransitionNone forView:self.view cache:YES];
+        
+        NSString *str = [[self.pictures objectAtIndex:currentPage] valueForKey:@"path"];
+        NSLog(@"PATH:%@", str);
+        [[NSFileManager defaultManager] removeItemAtPath:str error:nil];
+        [[[self.pictures objectAtIndex:currentPage] valueForKey:@"imageView"] removeFromSuperview];
+        //如果不是最后一张图片
+        if ([self.pictures count] != (currentPage + 1)) {
+            for (int i = currentPage + 1; i < [self.pictures count]; i++) {
+                UIImageView *imgV = [[self.pictures objectAtIndex:i] valueForKey:@"imageView"];
+                CGRect rect = imgV.frame;
+                rect.origin.x -= 320;
+                imgV.frame = rect;
+            }
+            
+            CGSize size = scrollView.contentSize;
+            size.width -= 320;
+            scrollView.contentSize = size;
+        }
+        //如果只有一张图片
+        else if ([self.pictures count] == 1) {
+            CGSize size = CGSizeMake(320, 480);
+            scrollView.contentSize = size;
+        }
+        //如果是排在最后的一张图片
+        else {
+            CGSize size = scrollView.contentSize;
+            size.width -= 320;
+            //            [self.scrollView scrollRectToVisible:CGRectMake(size.width, 0, 320, 480) animated:YES];
+            scrollView.contentSize = size;
+        }
+        
+        
+        
+        [self.pictures removeObjectAtIndex:currentPage];
+        [UIView commitAnimations];
+    }
+}
 @end

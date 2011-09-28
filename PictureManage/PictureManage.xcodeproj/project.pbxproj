@@ -157,6 +157,7 @@
 		7DF4002E142B86CC001BD154 /* ad_bg_ThuSep22_113120_2011.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DF4002C142B86CC001BD154 /* ad_bg_ThuSep22_113120_2011.png */; };
 		A93FDA24142F021B00FFCFAA /* ToolView.m in Sources */ = {isa = PBXBuildFile; fileRef = A93FDA22142F021B00FFCFAA /* ToolView.m */; };
 		A93FDA25142F021B00FFCFAA /* ToolView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A93FDA23142F021B00FFCFAA /* ToolView.xib */; };
+		A96B1699143214AD007F5281 /* FileOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = A96B1698143214AD007F5281 /* FileOperation.m */; };
 		A9CEFE521409D9B50027926E /* DialogView.m in Sources */ = {isa = PBXBuildFile; fileRef = A9CEFE501409D9B50027926E /* DialogView.m */; };
 		A9CEFE571409D9FE0027926E /* ImageSavingOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = A9CEFE541409D9FE0027926E /* ImageSavingOperation.m */; };
 		A9CEFE581409D9FE0027926E /* RotateUIImage.m in Sources */ = {isa = PBXBuildFile; fileRef = A9CEFE561409D9FE0027926E /* RotateUIImage.m */; };
@@ -396,6 +397,8 @@
 		A93FDA21142F021B00FFCFAA /* ToolView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolView.h; sourceTree = "<group>"; };
 		A93FDA22142F021B00FFCFAA /* ToolView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolView.m; sourceTree = "<group>"; };
 		A93FDA23142F021B00FFCFAA /* ToolView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ToolView.xib; sourceTree = "<group>"; };
+		A96B1697143214AD007F5281 /* FileOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileOperation.h; sourceTree = "<group>"; };
+		A96B1698143214AD007F5281 /* FileOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileOperation.m; sourceTree = "<group>"; };
 		A9CEFE4F1409D9B50027926E /* DialogView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DialogView.h; path = ../DialogView.h; sourceTree = "<group>"; };
 		A9CEFE501409D9B50027926E /* DialogView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DialogView.m; path = ../DialogView.m; sourceTree = "<group>"; };
 		A9CEFE531409D9FE0027926E /* ImageSavingOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageSavingOperation.h; sourceTree = "<group>"; };
@@ -542,6 +545,8 @@
 				7D0084671404B41000F1828B /* HomeViewDataSource.m */,
 				7D0084791404C12B00F1828B /* TableViewDataSource.h */,
 				7D00847A1404C12B00F1828B /* TableViewDataSource.m */,
+				A96B1697143214AD007F5281 /* FileOperation.h */,
+				A96B1698143214AD007F5281 /* FileOperation.m */,
 			);
 			path = DataSource;
 			sourceTree = "<group>";
@@ -1127,6 +1132,7 @@
 				7DCC8EED1411BB3D00666B02 /* UIImage+Compress.m in Sources */,
 				7D2E709814146528006217BC /* GenerateThumbnailOperation.m in Sources */,
 				A93FDA24142F021B00FFCFAA /* ToolView.m in Sources */,
+				A96B1699143214AD007F5281 /* FileOperation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
