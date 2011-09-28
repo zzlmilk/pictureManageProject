@@ -15,7 +15,12 @@
 @synthesize image;
 -(void)viewDidLoad{
     [super viewDidLoad];
-    [self.view setBackgroundColor:[UIColor grayColor]];
+    //背景图
+    UIImageView *backGroundView= [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"about_bg.jpg"]];
+    [backGroundView setFrame:CGRectMake(0, 0, 320, 480)];
+    [self.view addSubview: backGroundView];
+
+   
     UIBarButtonItem *rightBarButton = [[UIBarButtonItem alloc]initWithTitle:@"分享" style:UIBarButtonItemStyleBordered target:self action:@selector(shareSina)];
     self.navigationItem.rightBarButtonItem=rightBarButton;
     [rightBarButton release];

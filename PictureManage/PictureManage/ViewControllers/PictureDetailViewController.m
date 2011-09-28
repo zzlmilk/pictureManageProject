@@ -10,6 +10,7 @@
 #import "PictureDetailViewController.h"
 #import "Picture.h"
 #import "ShareEditViewController.h"
+#import "ShareViewController.h"
 
 @implementation PictureDetailViewController
 
@@ -134,10 +135,10 @@
 }
 
 -(void)doShare{
-    ShareEditViewController *shareEditViewController = [[ShareEditViewController alloc]init];
-    shareEditViewController.image =  [UIImage imageWithContentsOfFile:[[self.pictures objectAtIndex:currentPage] imageUrl]];
-    [self.navigationController pushViewController:shareEditViewController animated:YES];
-    [shareEditViewController release];
+    ShareViewController *shareViewController = [[ShareViewController alloc]init];
+    shareViewController.image =  [UIImage imageWithContentsOfFile:[[self.pictures objectAtIndex:currentPage] imageUrl]];
+    [self.navigationController pushViewController:shareViewController animated:YES];
+    [shareViewController release];
 }
 
 
