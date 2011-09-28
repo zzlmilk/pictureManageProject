@@ -121,7 +121,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 }
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath  
 { 
-    return UITableViewCellEditingStyleNone; 
+    return UITableViewCellEditingStyleDelete; 
 } 
 
 

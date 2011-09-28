@@ -31,6 +31,8 @@
 
 - (id)initWithCamera:(BOOL)isUsingCamera;
 -(void)updateToolBarInfo;
+- (UIImage *)scaleImage:(UIImage *) image maxWidth:(float) maxWidth maxHeight:(float) maxHeight;
+-(UIImage*) scaleAndRotateImage:(UIImage*)photoimage:(CGFloat)bounds_width:(CGFloat)bounds_height;
 
 @end
 

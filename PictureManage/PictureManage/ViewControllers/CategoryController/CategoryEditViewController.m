@@ -25,6 +25,7 @@
     [backGroundView setFrame:CGRectMake(0, 0, 320, 480)];
     [self.view addSubview: backGroundView];
 
+    
 
     
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(20, 30, 68, 30)];

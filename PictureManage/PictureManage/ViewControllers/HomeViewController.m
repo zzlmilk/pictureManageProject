@@ -262,11 +262,14 @@
 
 - (void)imagePickerController:(ImageImporterController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     UIImage *image = [info valueForKey:UIImagePickerControllerOriginalImage];
+    NSLog(@"w:%f h:%f",image.size.width,image.size.height);
     if([picker.selectedImages count]>19){
         [[PictureManageAppDelegate getAppDelegate] alert:@"提示" message:@"图片超过20了哦，有点过多请先导入"];
     }
     else{
+        
     [picker.selectedImages addObject:image];
+        
     if(!picker.isUsingCamera){
         [picker updateToolBarInfo];
     }
