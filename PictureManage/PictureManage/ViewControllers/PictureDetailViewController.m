@@ -49,15 +49,15 @@
 
 -(void)viewDidLoad{
     [super viewDidLoad];
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackOpaque animated:YES];
+    //[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackOpaque animated:YES];
     self.view.backgroundColor =[UIColor blackColor];
     
     currentPage = self.index;
     
-    UIBarButtonItem *rightBarButton = [[UIBarButtonItem alloc]initWithTitle:@"分享" style:UIBarButtonItemStyleBordered target:self action:@selector(doShare)];
-    self.navigationItem.rightBarButtonItem=rightBarButton;
-    [rightBarButton release];
-    
+//    UIBarButtonItem *rightBarButton = [[UIBarButtonItem alloc]initWithTitle:@"分享" style:UIBarButtonItemStyleBordered target:self action:@selector(doShare)];
+//    self.navigationItem.rightBarButtonItem=rightBarButton;
+//    [rightBarButton release];
+//    
     
     //scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, 320, 480-44)];
     CGFloat width = [[[[UIApplication sharedApplication] keyWindow] screen] bounds].size.width;
@@ -162,8 +162,8 @@
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    [self.navigationController setNavigationBarHidden:YES animated:YES];
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:YES];
+    //[self.navigationController setNavigationBarHidden:YES animated:YES];
+    //[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:YES];
 }
 
 #pragma mark --ScrollerView Delegate

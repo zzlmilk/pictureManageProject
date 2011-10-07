@@ -164,6 +164,7 @@
 		7DEFE8F214069F6E00D684EC /* ImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DEFE8F114069F6E00D684EC /* ImageView.m */; };
 		7DF4002D142B86CC001BD154 /* ad_bg@2x_ThuSep22_113202_2011.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DF4002B142B86CC001BD154 /* ad_bg@2x_ThuSep22_113202_2011.png */; };
 		7DF4002E142B86CC001BD154 /* ad_bg_ThuSep22_113120_2011.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DF4002C142B86CC001BD154 /* ad_bg_ThuSep22_113120_2011.png */; };
+		A92C13A9143EF2F7001E0CA4 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A92C13A8143EF2F7001E0CA4 /* MessageUI.framework */; };
 		A93FDA24142F021B00FFCFAA /* ToolView.m in Sources */ = {isa = PBXBuildFile; fileRef = A93FDA22142F021B00FFCFAA /* ToolView.m */; };
 		A93FDA25142F021B00FFCFAA /* ToolView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A93FDA23142F021B00FFCFAA /* ToolView.xib */; };
 		A96B1699143214AD007F5281 /* FileOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = A96B1698143214AD007F5281 /* FileOperation.m */; };
@@ -413,6 +414,7 @@
 		7DEFE8F114069F6E00D684EC /* ImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageView.m; sourceTree = "<group>"; };
 		7DF4002B142B86CC001BD154 /* ad_bg@2x_ThuSep22_113202_2011.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ad_bg@2x_ThuSep22_113202_2011.png"; sourceTree = "<group>"; };
 		7DF4002C142B86CC001BD154 /* ad_bg_ThuSep22_113120_2011.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ad_bg_ThuSep22_113120_2011.png; sourceTree = "<group>"; };
+		A92C13A8143EF2F7001E0CA4 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		A93FDA21142F021B00FFCFAA /* ToolView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolView.h; sourceTree = "<group>"; };
 		A93FDA22142F021B00FFCFAA /* ToolView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolView.m; sourceTree = "<group>"; };
 		A93FDA23142F021B00FFCFAA /* ToolView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ToolView.xib; sourceTree = "<group>"; };
@@ -434,6 +436,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A92C13A9143EF2F7001E0CA4 /* MessageUI.framework in Frameworks */,
 				7D0084361404B0DC00F1828B /* UIKit.framework in Frameworks */,
 				7D0084381404B0DC00F1828B /* Foundation.framework in Frameworks */,
 				7D00843A1404B0DC00F1828B /* CoreGraphics.framework in Frameworks */,
@@ -473,6 +476,7 @@
 		7D0084341404B0DC00F1828B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A92C13A8143EF2F7001E0CA4 /* MessageUI.framework */,
 				7D9B0107141084CF0013C93F /* libicucore.dylib */,
 				7D9B0108141084CF0013C93F /* libz.1.2.3.dylib */,
 				7D9B0109141084CF0013C93F /* libsqlite3.dylib */,

@@ -22,7 +22,7 @@
 -(void)viewDidLoad{
     [super viewDidLoad];
     
-    self.navigationItem.title = @"分享";
+    self.navigationItem.title = @"分享照片";
     //背景图
     UIImageView *backGroundView= [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"about_bg.jpg"]];
     [backGroundView setFrame:CGRectMake(0, 0, 320, 480)];
@@ -45,6 +45,20 @@
     [self.view addSubview:sinShare];
     
     
+    UIButton *emailShare = [UIButton  buttonWithType:UIButtonTypeCustom];
+    [emailShare setBackgroundImage:[UIImage imageNamed:@"share_btn_login_a_ThuSep22_141731_2011.png"] forState:UIControlStateNormal];
+    [emailShare setTitle:@"通过电子邮件分享" forState:UIControlStateNormal];
+    emailShare.frame = CGRectMake(45, 300, 230, 40 );
+    [emailShare addTarget:self action:@selector(shareWithEmail) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:emailShare];
+    
+    UIButton *renrenShare = [UIButton  buttonWithType:UIButtonTypeCustom];
+    [renrenShare setBackgroundImage:[UIImage imageNamed:@"share_btn_login_a_ThuSep22_141731_2011.png"] forState:UIControlStateNormal];
+    [renrenShare setTitle:@"分享到人人" forState:UIControlStateNormal];
+    renrenShare.frame = CGRectMake(45, 360, 230, 40 );
+    [renrenShare addTarget:self action:@selector(shareWithRenren) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:renrenShare];
+    
     
     UIImageView *sinIcon  = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"share_logo_sina_ThuSep22_141734_2011.png"]];
     sinIcon.frame =CGRectMake(30, 5, 30, 30);
@@ -60,5 +74,38 @@
     shareEditViewController.image = self.image;
     [self.navigationController pushViewController:shareEditViewController animated:YES];
     [shareEditViewController release];
+}
+
+
+#pragma mark - Mail Delegate
+- (void)shareWithEmail {
+    
+    MFMailComposeViewController *picker = [[MFMailComposeViewController alloc] init];
+    picker.navigationBar.barStyle = UIBarStyleBlackOpaque;
+    picker.mailComposeDelegate = self;
+    [picker setSubject:[NSString stringWithFormat:@"分享照片"]];
+    
+    [picker setMessageBody:@"I share you this nice image from iFashion." isHTML:NO];
+    
+    
+    [picker addAttachmentData:UIImagePNGRepresentation([self image]) mimeType:@"image/png" fileName:@"SharePicture.png"];
+    picker.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    [self presentModalViewController:picker animated:YES];
+    [picker release];
+    
+}
+
+- (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error 
+{	
+    
+	[self dismissModalViewControllerAnimated:YES];
+}
+
+- (void)shareWithSMS {
+    
+}
+
+- (void)shareWithRenren {
+
 }
 @end

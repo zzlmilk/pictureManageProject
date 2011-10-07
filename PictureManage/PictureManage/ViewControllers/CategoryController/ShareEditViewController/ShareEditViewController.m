@@ -13,11 +13,15 @@
 #define kOAuthConsumerSecret			@"e16121307f32276e4fa25b18334681b5"	
 @implementation ShareEditViewController
 @synthesize image;
+
 -(void)viewDidLoad{
     [super viewDidLoad];
     //背景图
     UIImageView *backGroundView= [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"about_bg.jpg"]];
     [backGroundView setFrame:CGRectMake(0, 0, 320, 480)];
+    UITapGestureRecognizer *tapGes = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(textViewDidEndEditing:)];
+    [backGroundView addGestureRecognizer:tapGes];
+    [tapGes release];
     [self.view addSubview: backGroundView];
 
 //    UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -29,18 +33,21 @@
     UIBarButtonItem *rightBarButton = [[UIBarButtonItem alloc]initWithTitle:@"分享" style:UIBarButtonItemStyleBordered target:self action:@selector(shareSina)];
     self.navigationItem.rightBarButtonItem=rightBarButton;
     [rightBarButton release];
-    textview = [[UITextView alloc]initWithFrame:CGRectMake(20, 10, 280, 100)];
+    textview = [[UITextView alloc]initWithFrame:CGRectMake(20, 60, 280, 100)];
     textview.backgroundColor = [UIColor whiteColor];
     textview.text = @"我的照片分享";
     textview.tag = 1;
     [textview setFont:[UIFont systemFontOfSize:14.0]];
-
-       textview.layer.borderWidth = 1;
-        textview.layer.cornerRadius = 6;
-        textview.layer.masksToBounds = YES; 
+    
+    textview.layer.borderWidth = 1;
+    textview.layer.cornerRadius = 6;
+    textview.layer.masksToBounds = YES; 
     textview.delegate = self;
+    
+    [textview setReturnKeyType:UIReturnKeyDone];
+    [textview setKeyboardAppearance:UIKeyboardAppearanceAlert];
     [self.view addSubview:textview];
-    imageView = [[UIImageView alloc]initWithFrame:CGRectMake(20, 120,280,280)];
+    imageView = [[UIImageView alloc]initWithFrame:CGRectMake(20, 170,280,280)];
     [self.view addSubview:imageView];
     draft = [[Draft alloc]initWithType:DraftTypeNewTweet];
 }
@@ -152,6 +159,10 @@
 - (void)textViewDidChange:(UITextView *)textView
 {
     
+}
+
+- (void)textViewDidEndEditing:(UITextView *)textView {
+    [textview resignFirstResponder];
 }
 
 

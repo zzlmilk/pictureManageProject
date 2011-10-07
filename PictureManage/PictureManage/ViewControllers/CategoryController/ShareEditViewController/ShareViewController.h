@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MessageUI/MFMailComposeViewController.h>
 #import "ShareEditViewController.h"
 
-@interface ShareViewController : UIViewController {
+@interface ShareViewController : UIViewController <MFMailComposeViewControllerDelegate> {
     
 }
 
