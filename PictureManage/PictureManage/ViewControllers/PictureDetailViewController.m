@@ -11,6 +11,7 @@
 #import "Picture.h"
 #import "ShareEditViewController.h"
 #import "ShareViewController.h"
+#import "FileOperation.h"
 
 @implementation PictureDetailViewController
 
@@ -100,6 +101,13 @@
     nextPage = currentPage+1==[self.pictures count]?0:currentPage+1;
 }
 
+//当前是第几页
+- (NSUInteger)getCurrentPage {
+    CGPoint point = scrollView.contentOffset;
+    NSUInteger page = point.x / 320;
+    return page;
+}
+
 //每次set pre current nex 3张图片
 -(void)createThreeImage{
     
@@ -117,7 +125,7 @@
     preImageView.image  = preImage;
     [scrollView addSubview:preImageView];
     
-     UIImage  *cureentImage = [UIImage imageWithContentsOfFile:[[self.pictures objectAtIndex:currentPage] imageUrl]];
+    UIImage  *cureentImage = [UIImage imageWithContentsOfFile:[[self.pictures objectAtIndex:currentPage] imageUrl]];
     y=(height-cureentImage.size.height)/2;
     currentImageView = [[UIImageView alloc]initWithFrame:CGRectMake(currentPage*width, y, cureentImage.size.width, cureentImage.size.height)];
     currentImageView.image  =cureentImage;
@@ -187,8 +195,6 @@
         }
         
     }
-
-    
 }
 
 #pragma mark - ToolView Delegate
@@ -197,7 +203,7 @@
 }
 
 - (void)endEditingWithString:(NSString *)string {
-
+    
 }
 
 - (void)sharePicture {
@@ -223,39 +229,46 @@
         [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
         [UIView setAnimationTransition:UIViewAnimationTransitionNone forView:self.view cache:YES];
         
-        NSString *str = [[self.pictures objectAtIndex:currentPage] valueForKey:@"path"];
-        NSLog(@"PATH:%@", str);
-        [[NSFileManager defaultManager] removeItemAtPath:str error:nil];
-        [[[self.pictures objectAtIndex:currentPage] valueForKey:@"imageView"] removeFromSuperview];
-        //如果不是最后一张图片
-        if ([self.pictures count] != (currentPage + 1)) {
-            for (int i = currentPage + 1; i < [self.pictures count]; i++) {
-                UIImageView *imgV = [[self.pictures objectAtIndex:i] valueForKey:@"imageView"];
-                CGRect rect = imgV.frame;
-                rect.origin.x -= 320;
-                imgV.frame = rect;
-            }
-            
-            CGSize size = scrollView.contentSize;
-            size.width -= 320;
-            scrollView.contentSize = size;
-        }
-        //如果只有一张图片
-        else if ([self.pictures count] == 1) {
-            CGSize size = CGSizeMake(320, 480);
-            scrollView.contentSize = size;
-        }
-        //如果是排在最后的一张图片
-        else {
-            CGSize size = scrollView.contentSize;
-            size.width -= 320;
-            //            [self.scrollView scrollRectToVisible:CGRectMake(size.width, 0, 320, 480) animated:YES];
-            scrollView.contentSize = size;
-        }
+        NSString *str = [[self.pictures objectAtIndex:[self getCurrentPage]] valueForKey:@"imageUrl"];
+        //NSLog(@"PATH:%@", str);
+        NSString *fileName = [str substringFromIndex:([str length] - 32)];
+        NSString *category = [[self.pictures objectAtIndex:[self getCurrentPage]] valueForKey:@"belongCategory"];
+        FileOperation *fileOp = [[FileOperation alloc] init];
+        [fileOp removeFile:fileName withCategory:category];
+        [fileOp release];
+//        [[NSFileManager defaultManager] removeItemAtPath:str error:nil];
+//        [[NSFileManager defaultManager] removeItemAtPath:[NSString stringWithFormat:@"%@.thumbnail", str] error:nil];
+        
+        [currentImageView removeFromSuperview];
         
         
+//        //如果不是最后一张图片
+//        if ([self.pictures count] != ([self getCurrentPage] + 1)) {
+//            for (int i = [self getCurrentPage] + 1; i < [self.pictures count]; i++) {
+//                UIImageView *imgV = [[self.pictures objectAtIndex:i] valueForKey:@"imageView"];
+//                CGRect rect = imgV.frame;
+//                rect.origin.x -= 320;
+//                imgV.frame = rect;
+//            }
+//            
+//            CGSize size = scrollView.contentSize;
+//            size.width -= 320;
+//            scrollView.contentSize = size;
+//        }
+//        //如果只有一张图片
+//        else if ([self.pictures count] == 1) {
+//            CGSize size = CGSizeMake(320, 480);
+//            scrollView.contentSize = size;
+//        }
+//        //如果是排在最后的一张图片
+//        else {
+//            CGSize size = scrollView.contentSize;
+//            size.width -= 320;
+//            //            [self.scrollView scrollRectToVisible:CGRectMake(size.width, 0, 320, 480) animated:YES];
+//            scrollView.contentSize = size;
+//        }
         
-        [self.pictures removeObjectAtIndex:currentPage];
+        [self.pictures removeObjectAtIndex:[self getCurrentPage]];
         [UIView commitAnimations];
     }
 }
