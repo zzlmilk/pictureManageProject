@@ -20,29 +20,50 @@
 #define kOAuthConsumerappid_renren	  @"163338"
 
 @implementation ShareEditViewController
+<<<<<<< HEAD
 @synthesize image,sType;
+=======
+@synthesize image;
+
+>>>>>>> 1a17b34156337d7fa29bbc0f5078c4ec390399c0
 -(void)viewDidLoad{
     [super viewDidLoad];
     //背景图
     UIImageView *backGroundView= [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"about_bg.jpg"]];
     [backGroundView setFrame:CGRectMake(0, 0, 320, 480)];
+    UITapGestureRecognizer *tapGes = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(textViewDidEndEditing:)];
+    [backGroundView addGestureRecognizer:tapGes];
+    [tapGes release];
     [self.view addSubview: backGroundView];
 
+<<<<<<< HEAD
        UIBarButtonItem *rightBarButton = [[UIBarButtonItem alloc]initWithTitle:@"分享" style:UIBarButtonItemStyleBordered target:self action:@selector(shareSina)];
+=======
+//    UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+//    [backBtn setBackgroundImage:[UIImage imageNamed:@"share_btn_close_b_ThuSep22_141731_2011.png"] forState:UIControlStateNormal];
+//    [backBtn setFrame:CGRectMake(290, 10, 10, 10)];
+//    [backBtn addTarget:self action:@selector(doBack) forControlEvents:UIControlEventTouchUpInside];
+//    [self.view addSubview:backBtn];
+   
+    UIBarButtonItem *rightBarButton = [[UIBarButtonItem alloc]initWithTitle:@"分享" style:UIBarButtonItemStyleBordered target:self action:@selector(shareSina)];
+>>>>>>> 1a17b34156337d7fa29bbc0f5078c4ec390399c0
     self.navigationItem.rightBarButtonItem=rightBarButton;
     [rightBarButton release];
-    textview = [[UITextView alloc]initWithFrame:CGRectMake(20, 10, 280, 100)];
+    textview = [[UITextView alloc]initWithFrame:CGRectMake(20, 60, 280, 100)];
     textview.backgroundColor = [UIColor whiteColor];
     textview.text = @"我的照片分享";
     textview.tag = 1;
     [textview setFont:[UIFont systemFontOfSize:14.0]];
-
-       textview.layer.borderWidth = 1;
-        textview.layer.cornerRadius = 6;
-        textview.layer.masksToBounds = YES; 
+    
+    textview.layer.borderWidth = 1;
+    textview.layer.cornerRadius = 6;
+    textview.layer.masksToBounds = YES; 
     textview.delegate = self;
+    
+    [textview setReturnKeyType:UIReturnKeyDone];
+    [textview setKeyboardAppearance:UIKeyboardAppearanceAlert];
     [self.view addSubview:textview];
-    imageView = [[UIImageView alloc]initWithFrame:CGRectMake(20, 120,280,280)];
+    imageView = [[UIImageView alloc]initWithFrame:CGRectMake(20, 170,280,280)];
     [self.view addSubview:imageView];
     draft = [[Draft alloc]initWithType:DraftTypeNewTweet];
     UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -176,6 +197,10 @@
 - (void)textViewDidChange:(UITextView *)textView
 {
     
+}
+
+- (void)textViewDidEndEditing:(UITextView *)textView {
+    [textview resignFirstResponder];
 }
 
 

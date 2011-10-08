@@ -18,6 +18,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackOpaque animated:YES];
     homeViewController = [[HomeViewController alloc]init];
     navController = [[UINavigationController alloc]initWithRootViewController:homeViewController];
     self.window.rootViewController = navController;

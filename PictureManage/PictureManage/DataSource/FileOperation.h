@@ -10,4 +10,6 @@
 
 @interface FileOperation : NSObject
 
+
+- (void)removeFile:(NSString *)fileName withCategory:(NSString *)categoryName;
 @end
