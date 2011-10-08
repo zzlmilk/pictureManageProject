@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ShareEditViewController.h"
+#import "Renren.h"
 
 @interface ShareViewController : UIViewController {
     

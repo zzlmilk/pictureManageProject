@@ -102,35 +102,36 @@
 
 //每次set pre current nex 3张图片
 -(void)createThreeImage{
-    
-    NSLog(@"%@",self.pictures);
-    
     CGFloat width = 320;
     CGFloat height = 480;
-    NSInteger y;
+    NSInteger x,y;
     [self caultePage:self.index];
     
     UIImage  *preImage = [UIImage imageWithContentsOfFile:[[self.pictures objectAtIndex:prePage] imageUrl]];
     
     y=(height-preImage.size.height)/2;
-    preImageView = [[UIImageView alloc]initWithFrame:CGRectMake(prePage*width, y, preImage.size.width, preImage.size.height)];
+    x=(width-preImage.size.width)/2;
+    preImageView = [[UIImageView alloc]initWithFrame:CGRectMake(prePage*width+x, y, preImage.size.width, preImage.size.height)];
     preImageView.image  = preImage;
     [scrollView addSubview:preImageView];
     
      UIImage  *cureentImage = [UIImage imageWithContentsOfFile:[[self.pictures objectAtIndex:currentPage] imageUrl]];
     y=(height-cureentImage.size.height)/2;
-    currentImageView = [[UIImageView alloc]initWithFrame:CGRectMake(currentPage*width, y, cureentImage.size.width, cureentImage.size.height)];
+        x=(width-cureentImage.size.width)/2;
+    currentImageView = [[UIImageView alloc]initWithFrame:CGRectMake(currentPage*width+x, y, cureentImage.size.width, cureentImage.size.height)];
     currentImageView.image  =cureentImage;
     [scrollView addSubview:currentImageView];
     
     UIImage  *nextImage = [UIImage imageWithContentsOfFile:[[self.pictures objectAtIndex:nextPage] imageUrl]];
     
+    x=(width-nextImage.size.width)/2;
     y=(height-nextImage.size.height)/2;
-    nextImageView = [[UIImageView alloc]initWithFrame:CGRectMake(nextPage*width, y, nextImage.size.width, nextImage.size.height)];
+    nextImageView = [[UIImageView alloc]initWithFrame:CGRectMake(nextPage*width+x, y, nextImage.size.width, nextImage.size.height)];
     nextImageView.image  = nextImage;
     [scrollView addSubview:nextImageView];
     
     [scrollView setContentOffset:CGPointMake(currentPage *width, 0) animated:NO];
+    
 }
 
 
@@ -139,9 +140,18 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    //detail界面照片位置/序号信息获取
+   // NSLog(@"count all =%d, index =%d", [self.pictures count],self.index);
+   // self.title  = [NSString stringWithFormat:@"%d of %d",[self.pictures count],self.index];
+    [self isDisplayArraowhead:self.index totalPage:[self.pictures count]];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     [self.navigationController.navigationBar setBarStyle:UIBarStyleBlackTranslucent];
     
+}
+
+-(void)isDisplayArraowhead:(NSInteger)curPage totalPage:(NSInteger)total{
+    
+     self.title = [NSString stringWithFormat:@"%d of %d",curPage+1,total];
 }
 
 -(void)doShare{
@@ -165,6 +175,8 @@
 
 
 -(void)scrollViewDidEndDragging:(UIScrollView *)aScrollView willDecelerate:(BOOL)decelerate{
+    
+    
     if(aScrollView.contentOffset.x/320>currentPage){
         //forword right
         nextPage++;
@@ -187,9 +199,16 @@
         }
         
     }
-
+    
+    
+    //[self isDisplayArraowhead:currentPage totalPage:[self.pictures count]]; 
+    
+   
     
 }
+
+
+
 
 #pragma mark - ToolView Delegate
 - (void)beginEditing {

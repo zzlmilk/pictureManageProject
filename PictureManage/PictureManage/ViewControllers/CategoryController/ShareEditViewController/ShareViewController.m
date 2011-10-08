@@ -44,13 +44,23 @@
     
     [self.view addSubview:sinShare];
     
+    UIButton *renShare = [UIButton  buttonWithType:UIButtonTypeCustom];
+    [renShare setBackgroundImage:[UIImage imageNamed:@"share_btn_login_ren_b_ThuSep22_141731_2011.png"] forState:UIControlStateNormal];
+    [renShare setTitle:@"人人分享" forState:UIControlStateNormal];
+    renShare.frame = CGRectMake(45, 290, 230, 40 );
+    [renShare addTarget:self action:@selector(shareRenren) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.view addSubview:renShare];
+    
     
     
     UIImageView *sinIcon  = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"share_logo_sina_ThuSep22_141734_2011.png"]];
     sinIcon.frame =CGRectMake(30, 5, 30, 30);
     [sinShare addSubview:sinIcon];
     
-
+    UIImageView *renIcon  = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"share_logo_ren_ThuSep22_141733_2011.png"]];
+    renIcon.frame =CGRectMake(30, 5, 30, 30);
+    [renShare addSubview:renIcon];
     
     
 }
@@ -58,7 +68,17 @@
 -(void)shareSinna{
     ShareEditViewController *shareEditViewController = [[ShareEditViewController alloc]init];
     shareEditViewController.image = self.image;
+    shareEditViewController.sType = sinaType;
     [self.navigationController pushViewController:shareEditViewController animated:YES];
     [shareEditViewController release];
+}
+
+-(void)shareRenren{
+    ShareEditViewController *shareEditViewController = [[ShareEditViewController alloc]init];
+    shareEditViewController.image = self.image;
+    shareEditViewController.sType = renrenType;
+    [self.navigationController pushViewController:shareEditViewController animated:YES];
+    [shareEditViewController release];
+
 }
 @end

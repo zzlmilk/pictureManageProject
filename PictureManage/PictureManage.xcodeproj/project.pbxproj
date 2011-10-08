@@ -21,6 +21,13 @@
 		7D0ADB7D140F8DC500DB303D /* ImportPictureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D0ADB7C140F8DC500DB303D /* ImportPictureView.m */; };
 		7D2425C2140E3206006D99B2 /* ImageImporterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D2425C1140E3206006D99B2 /* ImageImporterController.m */; };
 		7D2E709814146528006217BC /* GenerateThumbnailOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D2E709714146528006217BC /* GenerateThumbnailOperation.m */; };
+		7D41BDCC144002E30044C513 /* Renren.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D41BDC6144002E30044C513 /* Renren.m */; };
+		7D41BDCD144002E30044C513 /* Request.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D41BDC8144002E30044C513 /* Request.m */; };
+		7D41BDCE144002E30044C513 /* RRDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D41BDCB144002E30044C513 /* RRDialog.m */; };
+		7D41BDD114400B9D0044C513 /* share_btn_login_ren_b_ThuSep22_141731_2011.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D41BDCF14400B9A0044C513 /* share_btn_login_ren_b_ThuSep22_141731_2011.png */; };
+		7D41BDD214400B9D0044C513 /* share_btn_login_ren_b@2x_ThuSep22_141732_2011.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D41BDD014400B9B0044C513 /* share_btn_login_ren_b@2x_ThuSep22_141732_2011.png */; };
+		7D41BDD514400F980044C513 /* share_logo_ren_ThuSep22_141733_2011.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D41BDD314400F950044C513 /* share_logo_ren_ThuSep22_141733_2011.png */; };
+		7D41BDD614400F980044C513 /* share_logo_ren@2x_ThuSep22_141733_2011.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D41BDD414400F960044C513 /* share_logo_ren@2x_ThuSep22_141733_2011.png */; };
 		7D4F9969142AE78300588BBB /* effect_bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7D4F9967142AE78300588BBB /* effect_bg.jpg */; };
 		7D4F996A142AE78300588BBB /* effect_bg@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7D4F9968142AE78300588BBB /* effect_bg@2x.jpg */; };
 		7D531A091432F47F009A6D10 /* btns_bg_ThuSep22_113202_2011.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D531A071432F47F009A6D10 /* btns_bg_ThuSep22_113202_2011.png */; };
@@ -202,6 +209,17 @@
 		7D2425C1140E3206006D99B2 /* ImageImporterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageImporterController.m; sourceTree = "<group>"; };
 		7D2E709614146528006217BC /* GenerateThumbnailOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GenerateThumbnailOperation.h; path = ../../../Classes/GenerateThumbnailOperation.h; sourceTree = "<group>"; };
 		7D2E709714146528006217BC /* GenerateThumbnailOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GenerateThumbnailOperation.m; path = ../../../Classes/GenerateThumbnailOperation.m; sourceTree = "<group>"; };
+		7D41BDC5144002E30044C513 /* Renren.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Renren.h; sourceTree = "<group>"; };
+		7D41BDC6144002E30044C513 /* Renren.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Renren.m; sourceTree = "<group>"; };
+		7D41BDC7144002E30044C513 /* Request.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Request.h; sourceTree = "<group>"; };
+		7D41BDC8144002E30044C513 /* Request.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Request.m; sourceTree = "<group>"; };
+		7D41BDC9144002E30044C513 /* RRConnect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRConnect.h; sourceTree = "<group>"; };
+		7D41BDCA144002E30044C513 /* RRDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRDialog.h; sourceTree = "<group>"; };
+		7D41BDCB144002E30044C513 /* RRDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRDialog.m; sourceTree = "<group>"; };
+		7D41BDCF14400B9A0044C513 /* share_btn_login_ren_b_ThuSep22_141731_2011.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = share_btn_login_ren_b_ThuSep22_141731_2011.png; sourceTree = "<group>"; };
+		7D41BDD014400B9B0044C513 /* share_btn_login_ren_b@2x_ThuSep22_141732_2011.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share_btn_login_ren_b@2x_ThuSep22_141732_2011.png"; sourceTree = "<group>"; };
+		7D41BDD314400F950044C513 /* share_logo_ren_ThuSep22_141733_2011.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = share_logo_ren_ThuSep22_141733_2011.png; sourceTree = "<group>"; };
+		7D41BDD414400F960044C513 /* share_logo_ren@2x_ThuSep22_141733_2011.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share_logo_ren@2x_ThuSep22_141733_2011.png"; sourceTree = "<group>"; };
 		7D4F9967142AE78300588BBB /* effect_bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = effect_bg.jpg; sourceTree = "<group>"; };
 		7D4F9968142AE78300588BBB /* effect_bg@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "effect_bg@2x.jpg"; sourceTree = "<group>"; };
 		7D531A071432F47F009A6D10 /* btns_bg_ThuSep22_113202_2011.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btns_bg_ThuSep22_113202_2011.png; sourceTree = "<group>"; };
@@ -585,9 +603,26 @@
 			path = ImageImporterController;
 			sourceTree = "<group>";
 		};
+		7D41BDC3144002D20044C513 /* renren */ = {
+			isa = PBXGroup;
+			children = (
+				7D41BDC5144002E30044C513 /* Renren.h */,
+				7D41BDC6144002E30044C513 /* Renren.m */,
+				7D41BDC7144002E30044C513 /* Request.h */,
+				7D41BDC8144002E30044C513 /* Request.m */,
+				7D41BDC9144002E30044C513 /* RRConnect.h */,
+				7D41BDCA144002E30044C513 /* RRDialog.h */,
+				7D41BDCB144002E30044C513 /* RRDialog.m */,
+			);
+			name = renren;
+			path = share/renren;
+			sourceTree = "<group>";
+		};
 		7D4F9966142AE78300588BBB /* Bgimages */ = {
 			isa = PBXGroup;
 			children = (
+				7D41BDCF14400B9A0044C513 /* share_btn_login_ren_b_ThuSep22_141731_2011.png */,
+				7D41BDD014400B9B0044C513 /* share_btn_login_ren_b@2x_ThuSep22_141732_2011.png */,
 				7D531A2314330F2E009A6D10 /* share_btn_close_b_ThuSep22_141731_2011.png */,
 				7D531A2414330F2F009A6D10 /* share_btn_close_b@2x_ThuSep22_141731_2011.png */,
 				7D531A1B1432FBF7009A6D10 /* share_btn_login_a_ThuSep22_141731_2011.png */,
@@ -611,6 +646,8 @@
 				7D5ADA95142B0F680050B1D4 /* main_menu_bottom_btn1_a_ThuSep22_141728_2011.png */,
 				7D5ADA96142B0F680050B1D4 /* main_menu_bottom_btn1_a@2x_ThuSep22_141728_2011.png */,
 				7D531A1F1432FEA0009A6D10 /* share_btn_login_b_ThuSep22_141731_2011.png */,
+				7D41BDD314400F950044C513 /* share_logo_ren_ThuSep22_141733_2011.png */,
+				7D41BDD414400F960044C513 /* share_logo_ren@2x_ThuSep22_141733_2011.png */,
 				7D531A201432FEA0009A6D10 /* share_btn_login_b@2x_ThuSep22_141731_2011.png */,
 				7D5ADA84142B0B710050B1D4 /* about_bg.jpg */,
 				7D5ADA85142B0B710050B1D4 /* about_bg@2x.jpg */,
@@ -643,6 +680,7 @@
 		7D7F36F51406FE4600EBDDF8 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				7D41BDC3144002D20044C513 /* renren */,
 				7D9B00E2141083BE0013C93F /* JSON */,
 				7D9BFF8014107F110013C93F /* share */,
 				7D9004351408D8FD00AF6DCD /* Uity */,
@@ -1091,6 +1129,10 @@
 				7D531A221432FEA0009A6D10 /* share_btn_login_b@2x_ThuSep22_141731_2011.png in Resources */,
 				7D531A2514330F31009A6D10 /* share_btn_close_b_ThuSep22_141731_2011.png in Resources */,
 				7D531A2614330F31009A6D10 /* share_btn_close_b@2x_ThuSep22_141731_2011.png in Resources */,
+				7D41BDD114400B9D0044C513 /* share_btn_login_ren_b_ThuSep22_141731_2011.png in Resources */,
+				7D41BDD214400B9D0044C513 /* share_btn_login_ren_b@2x_ThuSep22_141732_2011.png in Resources */,
+				7D41BDD514400F980044C513 /* share_logo_ren_ThuSep22_141733_2011.png in Resources */,
+				7D41BDD614400F980044C513 /* share_logo_ren@2x_ThuSep22_141733_2011.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1180,6 +1222,9 @@
 				A93FDA24142F021B00FFCFAA /* ToolView.m in Sources */,
 				7D531A161432F99F009A6D10 /* ShareViewController.m in Sources */,
 				A96B1699143214AD007F5281 /* FileOperation.m in Sources */,
+				7D41BDCC144002E30044C513 /* Renren.m in Sources */,
+				7D41BDCD144002E30044C513 /* Request.m in Sources */,
+				7D41BDCE144002E30044C513 /* RRDialog.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

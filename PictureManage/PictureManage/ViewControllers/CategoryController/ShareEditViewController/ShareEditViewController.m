@@ -9,10 +9,18 @@
 #import "ShareEditViewController.h"
 
 #import <QuartzCore/QuartzCore.h>
+
+//sinna
 #define kOAuthConsumerKey				@"1255896678"		
 #define kOAuthConsumerSecret			@"e16121307f32276e4fa25b18334681b5"	
+
+//renren
+#define kOAuthConsumerKey_renren		@"fa1ed228cc3640d6b473bf6385c129ec"
+#define kOAuthConsumerSecret_renren		@"d7f382207f8c40fdbef7e19edc7a1f05"
+#define kOAuthConsumerappid_renren	  @"163338"
+
 @implementation ShareEditViewController
-@synthesize image;
+@synthesize image,sType;
 -(void)viewDidLoad{
     [super viewDidLoad];
     //背景图
@@ -20,13 +28,7 @@
     [backGroundView setFrame:CGRectMake(0, 0, 320, 480)];
     [self.view addSubview: backGroundView];
 
-    UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [backBtn setBackgroundImage:[UIImage imageNamed:@"share_btn_close_b_ThuSep22_141731_2011.png"] forState:UIControlStateNormal];
-    [backBtn setFrame:CGRectMake(290, 10, 10, 10)];
-    [backBtn addTarget:self action:@selector(doBack) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:backBtn];
-   
-    UIBarButtonItem *rightBarButton = [[UIBarButtonItem alloc]initWithTitle:@"分享" style:UIBarButtonItemStyleBordered target:self action:@selector(shareSina)];
+       UIBarButtonItem *rightBarButton = [[UIBarButtonItem alloc]initWithTitle:@"分享" style:UIBarButtonItemStyleBordered target:self action:@selector(shareSina)];
     self.navigationItem.rightBarButtonItem=rightBarButton;
     [rightBarButton release];
     textview = [[UITextView alloc]initWithFrame:CGRectMake(20, 10, 280, 100)];
@@ -43,20 +45,42 @@
     imageView = [[UIImageView alloc]initWithFrame:CGRectMake(20, 120,280,280)];
     [self.view addSubview:imageView];
     draft = [[Draft alloc]initWithType:DraftTypeNewTweet];
-}
+    UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [backBtn setBackgroundImage:[UIImage imageNamed:@"share_btn_close_b_ThuSep22_141731_2011.png"] forState:UIControlStateNormal];
+    [backBtn setFrame:CGRectMake(270, 10, 30, 30)];
+    [backBtn addTarget:self action:@selector(doBack) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:backBtn];
+    
+
+
+  }
 
 
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    self.navigationItem.title=@"新浪分享";
-    if (!_engine){
-		_engine = [[OAuthEngine alloc] initOAuthWithDelegate: self];
-		_engine.consumerKey = kOAuthConsumerKey;
-		_engine.consumerSecret = kOAuthConsumerSecret;
-	}
-    [imageView setImage:self.image];
-     [self performSelector:@selector(loadTimeline) withObject:nil afterDelay:0.5f];
+    if (sType==sinaType) {
+        self.navigationItem.title=@"新浪分享";
+        if (!_engine){
+            draft = [[Draft alloc]initWithType:DraftTypeNewTweet];
+            _engine = [[OAuthEngine alloc] initOAuthWithDelegate: self];
+            _engine.consumerKey = kOAuthConsumerKey;
+            _engine.consumerSecret = kOAuthConsumerSecret;
+        }
+       
+        [self performSelector:@selector(loadTimeline) withObject:nil afterDelay:0.5f];
+    }
+    else if (sType ==renrenType){
+            self.navigationItem.title=@"=人人分享";
+        _renren=[[Renren alloc] initWithAppKeyAndId:kOAuthConsumerKey_renren andAppId:kOAuthConsumerappid_renren];
+        
+        [_renren authorize:nil delegate:self];
+        
+        
+    }
+    
+     [imageView setImage:self.image];
+   
 }
 
 
@@ -193,9 +217,24 @@
 	
 }
 
+#pragma Renren Delegate
+-(void)rrDidLogin{
+	
+    NSMutableDictionary *params=[NSMutableDictionary dictionary];
+    
+    
+    [_renren dialog:@"feed" andParams:params andDelegate:self];
+
+   
+}
+
 
 -(void)doBack{
-    [self.navigationController dismissModalViewControllerAnimated:YES];
+    
+    [self.navigationController popViewControllerAnimated:YES];
+    
 }
+
+
 
 @end

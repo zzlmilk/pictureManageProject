@@ -32,4 +32,6 @@
 
 -(void)setThreeImage:(NSInteger)index;
 
+-(void)isDisplayArraowhead:(NSInteger )curPage totalPage:(NSInteger)total;
+
 @end
