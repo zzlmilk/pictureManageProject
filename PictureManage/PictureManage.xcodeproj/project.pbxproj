@@ -164,7 +164,6 @@
 		7D9B01051410848D0013C93F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D9B01031410848D0013C93F /* Security.framework */; };
 		7D9B01061410848D0013C93F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D9B01041410848D0013C93F /* SystemConfiguration.framework */; };
 		7D9B010A141084CF0013C93F /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D9B0107141084CF0013C93F /* libicucore.dylib */; };
-		7D9B010B141084CF0013C93F /* libz.1.2.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D9B0108141084CF0013C93F /* libz.1.2.3.dylib */; };
 		7D9B010C141084CF0013C93F /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D9B0109141084CF0013C93F /* libsqlite3.dylib */; };
 		7D9B01101410950E0013C93F /* ShareEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D9B010F1410950E0013C93F /* ShareEditViewController.m */; };
 		7DCC8EED1411BB3D00666B02 /* UIImage+Compress.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DCC8EEC1411BB3D00666B02 /* UIImage+Compress.m */; };
@@ -173,6 +172,7 @@
 		7DEFE8F214069F6E00D684EC /* ImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DEFE8F114069F6E00D684EC /* ImageView.m */; };
 		7DF4002D142B86CC001BD154 /* ad_bg@2x_ThuSep22_113202_2011.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DF4002B142B86CC001BD154 /* ad_bg@2x_ThuSep22_113202_2011.png */; };
 		7DF4002E142B86CC001BD154 /* ad_bg_ThuSep22_113120_2011.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DF4002C142B86CC001BD154 /* ad_bg_ThuSep22_113120_2011.png */; };
+		A91E975B14658FE900FE9BDB /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A91E975A14658FE900FE9BDB /* MessageUI.framework */; };
 		A93FDA24142F021B00FFCFAA /* ToolView.m in Sources */ = {isa = PBXBuildFile; fileRef = A93FDA22142F021B00FFCFAA /* ToolView.m */; };
 		A93FDA25142F021B00FFCFAA /* ToolView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A93FDA23142F021B00FFCFAA /* ToolView.xib */; };
 		A96B1699143214AD007F5281 /* FileOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = A96B1698143214AD007F5281 /* FileOperation.m */; };
@@ -421,7 +421,6 @@
 		7D9B01031410848D0013C93F /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		7D9B01041410848D0013C93F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		7D9B0107141084CF0013C93F /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
-		7D9B0108141084CF0013C93F /* libz.1.2.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.3.dylib; path = usr/lib/libz.1.2.3.dylib; sourceTree = SDKROOT; };
 		7D9B0109141084CF0013C93F /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		7D9B010E1410950E0013C93F /* ShareEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareEditViewController.h; sourceTree = "<group>"; };
 		7D9B010F1410950E0013C93F /* ShareEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareEditViewController.m; sourceTree = "<group>"; };
@@ -435,6 +434,7 @@
 		7DEFE8F114069F6E00D684EC /* ImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageView.m; sourceTree = "<group>"; };
 		7DF4002B142B86CC001BD154 /* ad_bg@2x_ThuSep22_113202_2011.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ad_bg@2x_ThuSep22_113202_2011.png"; sourceTree = "<group>"; };
 		7DF4002C142B86CC001BD154 /* ad_bg_ThuSep22_113120_2011.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ad_bg_ThuSep22_113120_2011.png; sourceTree = "<group>"; };
+		A91E975A14658FE900FE9BDB /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		A93FDA21142F021B00FFCFAA /* ToolView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolView.h; sourceTree = "<group>"; };
 		A93FDA22142F021B00FFCFAA /* ToolView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolView.m; sourceTree = "<group>"; };
 		A93FDA23142F021B00FFCFAA /* ToolView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ToolView.xib; sourceTree = "<group>"; };
@@ -456,6 +456,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A91E975B14658FE900FE9BDB /* MessageUI.framework in Frameworks */,
 				7D0084361404B0DC00F1828B /* UIKit.framework in Frameworks */,
 				7D0084381404B0DC00F1828B /* Foundation.framework in Frameworks */,
 				7D00843A1404B0DC00F1828B /* CoreGraphics.framework in Frameworks */,
@@ -467,7 +468,6 @@
 				7D9B01051410848D0013C93F /* Security.framework in Frameworks */,
 				7D9B01061410848D0013C93F /* SystemConfiguration.framework in Frameworks */,
 				7D9B010A141084CF0013C93F /* libicucore.dylib in Frameworks */,
-				7D9B010B141084CF0013C93F /* libz.1.2.3.dylib in Frameworks */,
 				7D9B010C141084CF0013C93F /* libsqlite3.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -478,6 +478,7 @@
 		7D0084261404B0DC00F1828B = {
 			isa = PBXGroup;
 			children = (
+				A91E975A14658FE900FE9BDB /* MessageUI.framework */,
 				7D00843B1404B0DC00F1828B /* PictureManage */,
 				7D0084341404B0DC00F1828B /* Frameworks */,
 				7D0084321404B0DC00F1828B /* Products */,
@@ -496,7 +497,6 @@
 			isa = PBXGroup;
 			children = (
 				7D9B0107141084CF0013C93F /* libicucore.dylib */,
-				7D9B0108141084CF0013C93F /* libz.1.2.3.dylib */,
 				7D9B0109141084CF0013C93F /* libsqlite3.dylib */,
 				7D9B01031410848D0013C93F /* Security.framework */,
 				7D9B01041410848D0013C93F /* SystemConfiguration.framework */,

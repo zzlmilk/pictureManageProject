@@ -26,6 +26,10 @@
     //背景图
     UIImageView *backGroundView= [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"about_bg.jpg"]];
     [backGroundView setFrame:CGRectMake(0, 0, 320, 480)];
+    UITapGestureRecognizer *tapGes = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(textViewDidEndEditing:)];
+    [backGroundView addGestureRecognizer:tapGes];
+    [tapGes release];
+
     [self.view addSubview: backGroundView];
 
        UIBarButtonItem *rightBarButton = [[UIBarButtonItem alloc]initWithTitle:@"分享" style:UIBarButtonItemStyleBordered target:self action:@selector(shareSina)];

@@ -11,6 +11,7 @@
 #import "Picture.h"
 #import "ShareEditViewController.h"
 #import "ShareViewController.h"
+#import "FileOperation.h"
 
 @implementation PictureDetailViewController
 
