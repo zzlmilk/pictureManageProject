@@ -478,7 +478,6 @@
 		7D0084261404B0DC00F1828B = {
 			isa = PBXGroup;
 			children = (
-				A91E975A14658FE900FE9BDB /* MessageUI.framework */,
 				7D00843B1404B0DC00F1828B /* PictureManage */,
 				7D0084341404B0DC00F1828B /* Frameworks */,
 				7D0084321404B0DC00F1828B /* Products */,
@@ -498,6 +497,7 @@
 			children = (
 				7D9B0107141084CF0013C93F /* libicucore.dylib */,
 				7D9B0109141084CF0013C93F /* libsqlite3.dylib */,
+				A91E975A14658FE900FE9BDB /* MessageUI.framework */,
 				7D9B01031410848D0013C93F /* Security.framework */,
 				7D9B01041410848D0013C93F /* SystemConfiguration.framework */,
 				7D9B0101141084820013C93F /* MobileCoreServices.framework */,
