@@ -62,6 +62,14 @@
 
 
     
+    UIButton *renrenShare = [UIButton  buttonWithType:UIButtonTypeCustom];
+    [renrenShare setBackgroundImage:[UIImage imageNamed:@"share_btn_login_a_ThuSep22_141731_2011.png"] forState:UIControlStateNormal];
+    [renrenShare setTitle:@"分享到人人" forState:UIControlStateNormal];
+    renrenShare.frame = CGRectMake(45, 360, 230, 40 );
+    [renrenShare addTarget:self action:@selector(shareWithRenren) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:renrenShare];
+    
+    
     UIImageView *sinIcon  = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"share_logo_sina_ThuSep22_141734_2011.png"]];
     sinIcon.frame =CGRectMake(30, 5, 30, 30);
     [sinShare addSubview:sinIcon];

@@ -40,13 +40,16 @@
     textview.text = @"我的照片分享";
     textview.tag = 1;
     [textview setFont:[UIFont systemFontOfSize:14.0]];
-
-       textview.layer.borderWidth = 1;
-        textview.layer.cornerRadius = 6;
-        textview.layer.masksToBounds = YES; 
+    
+    textview.layer.borderWidth = 1;
+    textview.layer.cornerRadius = 6;
+    textview.layer.masksToBounds = YES; 
     textview.delegate = self;
+    
+    [textview setReturnKeyType:UIReturnKeyDone];
+    [textview setKeyboardAppearance:UIKeyboardAppearanceAlert];
     [self.view addSubview:textview];
-    imageView = [[UIImageView alloc]initWithFrame:CGRectMake(20, 120,280,280)];
+    imageView = [[UIImageView alloc]initWithFrame:CGRectMake(20, 170,280,280)];
     [self.view addSubview:imageView];
     draft = [[Draft alloc]initWithType:DraftTypeNewTweet];
     UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -180,6 +183,10 @@
 - (void)textViewDidChange:(UITextView *)textView
 {
     
+}
+
+- (void)textViewDidEndEditing:(UITextView *)textView {
+    [textview resignFirstResponder];
 }
 
 
