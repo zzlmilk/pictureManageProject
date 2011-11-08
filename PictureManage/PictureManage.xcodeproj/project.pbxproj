@@ -158,7 +158,6 @@
 		7D9B00F4141083BE0013C93F /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D9B00EB141083BE0013C93F /* SBJsonParser.m */; };
 		7D9B00F5141083BE0013C93F /* SBJsonStreamWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D9B00ED141083BE0013C93F /* SBJsonStreamWriter.m */; };
 		7D9B00F6141083BE0013C93F /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D9B00EF141083BE0013C93F /* SBJsonWriter.m */; };
-		7D9B00FE1410846D0013C93F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D9B00FD1410846D0013C93F /* UIKit.framework */; };
 		7D9B01001410847B0013C93F /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D9B00FF1410847B0013C93F /* CFNetwork.framework */; };
 		7D9B0102141084820013C93F /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D9B0101141084820013C93F /* MobileCoreServices.framework */; };
 		7D9B01051410848D0013C93F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D9B01031410848D0013C93F /* Security.framework */; };
@@ -462,7 +461,6 @@
 				7D00843A1404B0DC00F1828B /* CoreGraphics.framework in Frameworks */,
 				7D7F37021406FF2B00EBDDF8 /* QuartzCore.framework in Frameworks */,
 				7D9B0075141081FF0013C93F /* libOAuth.a in Frameworks */,
-				7D9B00FE1410846D0013C93F /* UIKit.framework in Frameworks */,
 				7D9B01001410847B0013C93F /* CFNetwork.framework in Frameworks */,
 				7D9B0102141084820013C93F /* MobileCoreServices.framework in Frameworks */,
 				7D9B01051410848D0013C93F /* Security.framework in Frameworks */,
@@ -1030,6 +1028,7 @@
 		7D0084281404B0DC00F1828B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastUpgradeCheck = 0420;
 				ORGANIZATIONNAME = UZAI;
 			};
 			buildConfigurationList = 7D00842B1404B0DC00F1828B /* Build configuration list for PBXProject "PictureManage" */;
@@ -1296,6 +1295,7 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PictureManage/PictureManage-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "PictureManage/PictureManage-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1316,6 +1316,7 @@
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PictureManage/PictureManage-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "PictureManage/PictureManage-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
