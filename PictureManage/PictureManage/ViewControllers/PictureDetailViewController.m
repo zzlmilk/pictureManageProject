@@ -207,15 +207,13 @@
         }
         
     }
-<<<<<<< HEAD
+
     
     
     //[self isDisplayArraowhead:currentPage totalPage:[self.pictures count]]; 
     
    
-    
-=======
->>>>>>> 1a17b34156337d7fa29bbc0f5078c4ec390399c0
+
 }
 
 
