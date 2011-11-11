@@ -18,6 +18,12 @@
     [super dealloc];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.navigationController.navigationBar setBarStyle:UIBarStyleBlackTranslucent];
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackOpaque animated:YES];
+}
 
 -(void)viewDidLoad{
     [super viewDidLoad];
@@ -82,7 +88,7 @@
 }
 
 -(void)shareSinna{
-    ShareEditViewController *shareEditViewController = [[ShareEditViewController alloc]init];
+    ShareEditViewController *shareEditViewController = [[ShareEditViewController alloc] init];
     shareEditViewController.image = self.image;
     shareEditViewController.sType = sinaType;
     [self.navigationController pushViewController:shareEditViewController animated:YES];

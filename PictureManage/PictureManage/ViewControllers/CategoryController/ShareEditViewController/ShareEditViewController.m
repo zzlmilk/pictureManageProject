@@ -62,7 +62,10 @@
 
   }
 
-
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.navigationController.navigationBar setBarStyle:UIBarStyleBlackOpaque];
+}
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
