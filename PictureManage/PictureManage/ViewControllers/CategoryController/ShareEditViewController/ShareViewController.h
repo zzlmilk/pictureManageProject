@@ -7,12 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MessageUI/MFMailComposeViewController.h>
 #import "ShareEditViewController.h"
 #import "Renren.h"
 #import <MessageUI/MFMailComposeViewController.h>
 
 @interface ShareViewController : UIViewController <MFMailComposeViewControllerDelegate> {
 
+@interface ShareViewController : UIViewController <MFMailComposeViewControllerDelegate> {
     
 }
 
